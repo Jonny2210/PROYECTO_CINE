@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="imagenes/CineBloom/logoCineBloom(favicon).ico" type="image/x-icon">
+  <title>CineBloom - Alimentos</title>
+  <!-- Material Icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Archivo CSS personalizado -->
+  <link rel="stylesheet" href="cine.css">
+</head>
+<body>
+<!-- Navegación -->
+<nav>
+  <div class="nav-wrapper">
+    <a href="index.html" class="brand-logo">
+      <img src="imagenes/CineBloom/logoCineBloom_fondoTransparente.png" alt="CineBloom Logo">
+      CineBloom
+    </a>
+    <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="#">Cartelera</a></li>
+      <li><a href="#" class="active">Alimentos</a></li>
+      <li><a href="#">Promociones</a></li>
+      <li><a href="#">Cines</a></li>
+      <li><a href="#">Contacto</a></li>
+      <li class="user-actions">
+        <a class="btn waves-effect waves-light" id="toggleCart">
+          <i class="fas fa-shopping-cart"></i> Carrito
+        </a>
+        <a class='dropdown-trigger' href='#' data-target='user-dropdown'>
+          <img src="imagenes/Usuario/Usuario.jpg" alt="User" class="user-profile">
+          Usuario
+          <i class="fas fa-chevron-down"></i>
+        </a>
+        <ul id='user-dropdown' class='dropdown-content'>
+          <li><a href="#"><i class="fas fa-user"></i> Mi perfil</a></li>
+          <li><a href="#"><i class="fas fa-ticket-alt"></i> Mis entradas</a></li>
+          <li><a href="#"><i class="fas fa-heart"></i> Favoritos</a></li>
+          <li class="divider"></li>
+          <li><a href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+        </ul>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- Menú móvil -->
+<ul class="sidenav" id="mobile-menu">
+  <li><a href="#">Cartelera</a></li>
+  <li><a href="#" class="active">Alimentos</a></li>
+  <li><a href="#">Promociones</a></li>
+  <li><a href="#">Cines</a></li>
+  <li><a href="#">Contacto</a></li>
+  <li class="divider"></li>
+  <li><a href="#"><i class="fas fa-user"></i> Mi perfil</a></li>
+  <li><a href="#"><i class="fas fa-ticket-alt"></i> Mis entradas</a></li>
+  <li><a href="#"><i class="fas fa-heart"></i> Favoritos</a></li>
+  <li><a href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+</ul>
+
+<!-- Contenido principal -->
+<div class="container">
+  <div class="food-section">
+    <div class="section-title">
+      <h2>Clásicos</h2>
+      <a href="#" class="view-all">Ver todo <i class="fas fa-chevron-right"></i></a>
+    </div>
+
+    <div class="row food-grid">
+      <div class="col s12 m6 l3">
+        <div class="food-card">
+          <div class="food-image">
+            <img src="imagenes/Alimentos/Palomitas.webp" alt="Palomitas">
+            <div class="food-overlay">
+              <div class="food-actions">
+                <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Agregar</button>
+              </div>
+            </div>
+          </div>
+          <div class="food-info">
+            <h3 class="food-title">Palomitas</h3>
+            <div class="food-meta">
+              <span class="price">$60.00</span>
+              <span class="size"><i class="fas fa-box"></i> Grande</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6 l3">
+        <div class="food-card">
+          <div class="food-image">
+            <img src="imagenes/Alimentos/Refresco.webp" alt="Refresco">
+            <div class="food-overlay">
+              <div class="food-actions">
+                <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Agregar</button>
+              </div>
+            </div>
+          </div>
+          <div class="food-info">
+            <h3 class="food-title">Refresco</h3>
+            <div class="food-meta">
+              <span class="price">$45.00</span>
+              <span class="size"><i class="fas fa-glass-whiskey"></i> 32 oz</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6 l3">
+        <div class="food-card">
+          <div class="food-image">
+            <img src="imagenes/Alimentos/Nachos.webp" alt="Nachos">
+            <div class="food-overlay">
+              <div class="food-actions">
+                <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Agregar</button>
+              </div>
+            </div>
+          </div>
+          <div class="food-info">
+            <h3 class="food-title">Nachos</h3>
+            <div class="food-meta">
+              <span class="price">$70.00</span>
+              <span class="size"><i class="fas fa-utensils"></i> Regular</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6 l3">
+        <div class="food-card">
+          <div class="food-image">
+            <img src="imagenes/Alimentos/HotDog.webp" alt="Hot Dog">
+            <div class="food-overlay">
+              <div class="food-actions">
+                <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Agregar</button>
+              </div>
+            </div>
+          </div>
+          <div class="food-info">
+            <h3 class="food-title">Hot Dog Individual</h3>
+            <div class="food-meta">
+              <span class="price">$55.00</span>
+              <span class="size"><i class="fas fa-hotdog"></i> Estándar</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="food-section">
+    <div class="section-title">
+      <h2>Combos</h2>
+      <a href="#" class="view-all">Ver todo <i class="fas fa-chevron-right"></i></a>
+    </div>
+
+    <div class="row food-grid">
+      <div class="col s12 m6 l3">
+        <div class="food-card">
+          <div class="food-image">
+            <img src="imagenes/Alimentos/Pareja.webp" alt="Combo Pareja">
+            <div class="food-overlay">
+              <div class="food-actions">
+                <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Agregar</button>
+              </div>
+            </div>
+          </div>
+          <div class="food-info">
+            <h3 class="food-title">Combo Pareja</h3>
+            <div class="food-meta">
+              <span class="price">$150.00</span>
+              <span class="size"><i class="fas fa-users"></i> 2 personas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6 l3">
+        <div class="food-card">
+          <div class="food-image">
+            <img src="imagenes/Alimentos/Familiar.webp" alt="Combo Familiar">
+            <div class="food-overlay">
+              <div class="food-actions">
+                <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Agregar</button>
+              </div>
+            </div>
+          </div>
+          <div class="food-info">
+            <h3 class="food-title">Combo Familiar</h3>
+            <div class="food-meta">
+              <span class="price">$260.00</span>
+              <span class="size"><i class="fas fa-users"></i> 4 personas</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6 l3">
+        <div class="food-card">
+          <div class="food-image">
+            <img src="imagenes/Alimentos/Mix.webp" alt="Combo Mix">
+            <div class="food-overlay">
+              <div class="food-actions">
+                <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Agregar</button>
+              </div>
+            </div>
+          </div>
+          <div class="food-info">
+            <h3 class="food-title">Combo Mix</h3>
+            <div class="food-meta">
+              <span class="price">$120.00</span>
+              <span class="size"><i class="fas fa-user"></i> Individual</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col s12 m6 l3">
+        <div class="food-card">
+          <div class="food-image">
+            <img src="imagenes/Alimentos/Premium.webp" alt="Combo Premium">
+            <div class="food-overlay">
+              <div class="food-actions">
+                <button class="add-to-cart"><i class="fas fa-shopping-cart"></i> Agregar</button>
+              </div>
+            </div>
+          </div>
+          <div class="food-info">
+            <h3 class="food-title">Combo Premium</h3>
+            <div class="food-meta">
+              <span class="price">$180.00</span>
+              <span class="size"><i class="fas fa-star"></i> Especial</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Carrito ocultable -->
+<div id="cartPanel" class="cart-panel">
+  <div class="cart-header">
+    <h5>🛒 Tu carrito</h5>
+    <a href="#" class="close-cart"><i class="fas fa-times"></i></a>
+  </div>
+  <div class="cart-items">
+    <div class="empty-cart">
+      <p>No has agregado alimentos a tu orden</p>
+    </div>
+  </div>
+  <div class="cart-footer">
+    <div class="subtotal">
+      <span>Subtotal:</span>
+      <span class="price">$0.00</span>
+    </div>
+    <a href="#" class="btn waves-effect waves-light checkout-btn">
+      Proceder al pago <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer>
+  <div class="footer-content">
+    <div class="footer-column">
+      <h4>CineBloom</h4>
+      <p>Tu cine favorito con la mejor experiencia cinematográfica. Disfruta de las películas más recientes con la mejor calidad de imagen y sonido.</p>
+      <div class="social-links">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-youtube"></i></a>
+      </div>
+    </div>
+    <div class="footer-column">
+      <h4>Enlaces rápidos</h4>
+      <ul>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Cartelera</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Alimentos</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Promociones</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Nuestros cines</a></li>
+        <li><a href="#"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="#"><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Ciudad</a></li>
+        <li><a href="#"><i class="fas fa-phone"></i> +123 456 7890</a></li>
+        <li><a href="#"><i class="fas fa-envelope"></i> info@cinebloom.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-column">
+      <h4>Horarios</h4>
+      <ul>
+        <li><i class="fas fa-clock"></i> Lunes a Jueves: 13:00 - 23:00</li>
+        <li><i class="fas fa-clock"></i> Viernes a Domingo: 11:00 - 01:00</li>
+        <li><i class="fas fa-clock"></i> Feriados: 11:00 - 01:00</li>
+      </ul>
+    </div>
+  </div>
+  <div class="copyright">
+    <p>&copy; 2025 CineBloom. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="cine-carrito.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagenes/CineBloom/logoCineBloom(favicon).ico" type="image/x-icon">
+    <title>CineBloom - Checkout</title>
+    <!-- Material Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Archivo CSS personalizado -->
+    <link rel="stylesheet" href="cine.css">
+    <style>
+        /* Estilos específicos para la página de checkout */
+        .checkout-container {
+          max-width: 800px;
+          margin: 30px auto;
+          padding: 20px;
+        }
+
+        .order-summary {
+          background: #f5f5f5;
+          padding: 20px;
+          border-radius: 8px;
+          margin-bottom: 30px;
+        }
+
+        .summary-header {
+          border-bottom: 1px solid #ddd;
+          padding-bottom: 10px;
+          margin-bottom: 15px;
+        }
+
+        .summary-item {
+          display: flex;
+          justify-content: space-between;
+          margin-bottom: 10px;
+          padding: 5px 0;
+        }
+
+        .summary-item .item-details {
+          flex: 1;
+        }
+
+        .summary-item .item-price {
+          text-align: right;
+          min-width: 80px;
+        }
+
+        .summary-total {
+          border-top: 2px solid #ddd;
+          padding-top: 15px;
+          margin-top: 15px;
+          font-weight: bold;
+          font-size: 18px;
+        }
+
+        .payment-form label {
+          font-size: 16px;
+          color: #333;
+        }
+
+        .payment-section {
+          margin-bottom: 30px;
+        }
+
+        .card-icons {
+          display: flex;
+          gap: 10px;
+          margin-bottom: 15px;
+        }
+
+        .card-icons i {
+          font-size: 30px;
+          color: #777;
+        }
+
+        .card-row {
+          display: flex;
+          gap: 15px;
+        }
+
+        .card-date {
+          width: 48%;
+        }
+
+        .card-cvv {
+          width: 48%;
+        }
+
+        .form-row {
+          margin-bottom: 20px;
+        }
+
+        .complete-order-btn {
+          margin-top: 20px;
+          width: 100%;
+          padding: 12px;
+          height: auto;
+          font-size: 16px;
+        }
+
+        /* Estilos para los campos de formulario */
+        input[type=text], input[type=email], input[type=number], select {
+          border: 1px solid #ccc !important;
+          border-radius: 4px !important;
+          padding: 0 10px !important;
+          height: 45px !important;
+          box-sizing: border-box !important;
+        }
+
+        input[type=text]:focus, input[type=email]:focus, input[type=number]:focus, select:focus {
+          border-color: #2196f3 !important;
+          box-shadow: 0 1px 0 0 #2196f3 !important;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+          .card-row {
+            flex-direction: column;
+            gap: 0;
+          }
+
+          .card-date, .card-cvv {
+            width: 100%;
+          }
+        }
+    </style>
+</head>
+<body>
+<!-- Navegación -->
+<nav>
+    <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo">
+            <img src="imagenes/CineBloom/logoCineBloom_fondoTransparente.png" alt="CineBloom Logo">
+            CineBloom
+        </a>
+        <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="#">Cartelera</a></li>
+            <li><a href="#">Alimentos</a></li>
+            <li><a href="#">Promociones</a></li>
+            <li><a href="#">Cines</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li class="user-actions">
+                <a class="btn waves-effect waves-light" id="toggleCart">
+                    <i class="fas fa-shopping-cart"></i> Carrito
+                </a>
+                <a class='dropdown-trigger' href='#' data-target='user-dropdown'>
+                    <img src="imagenes/Usuario/Usuario.jpg" alt="User" class="user-profile">
+                    Usuario
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul id='user-dropdown' class='dropdown-content'>
+                    <li><a href="#"><i class="fas fa-user"></i> Mi perfil</a></li>
+                    <li><a href="#"><i class="fas fa-ticket-alt"></i> Mis entradas</a></li>
+                    <li><a href="#"><i class="fas fa-heart"></i> Favoritos</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Menú móvil -->
+<ul class="sidenav" id="mobile-menu">
+    <li><a href="#">Cartelera</a></li>
+    <li><a href="#">Alimentos</a></li>
+    <li><a href="#">Promociones</a></li>
+    <li><a href="#">Cines</a></li>
+    <li><a href="#">Contacto</a></li>
+    <li class="divider"></li>
+    <li><a href="#"><i class="fas fa-user"></i> Mi perfil</a></li>
+    <li><a href="#"><i class="fas fa-ticket-alt"></i> Mis entradas</a></li>
+    <li><a href="#"><i class="fas fa-heart"></i> Favoritos</a></li>
+    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+</ul>
+
+<!-- Contenido principal -->
+<div class="checkout-container">
+    <h4>Finaliza tu compra</h4>
+
+    <div class="order-summary">
+        <div class="summary-header">
+            <h5>Resumen de tu pedido</h5>
+        </div>
+
+        <div id="orderItems">
+            <!-- Aquí se mostrarán los productos dinámicamente -->
+        </div>
+
+        <div class="summary-total">
+            <div class="summary-item">
+                <div class="item-details">Total:</div>
+                <div class="item-price" id="orderTotal">$0.00</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment-section">
+        <h5>Información de pago</h5>
+
+        <div class="card-icons">
+            <i class="fab fa-cc-visa"></i>
+            <i class="fab fa-cc-mastercard"></i>
+            <i class="fab fa-cc-amex"></i>
+            <i class="fab fa-cc-discover"></i>
+        </div>
+
+        <form id="paymentForm">
+            <div class="form-row">
+                <label for="cardName">Nombre en la tarjeta</label>
+                <input type="text" id="cardName" required placeholder="Como aparece en tu tarjeta">
+            </div>
+
+            <div class="form-row">
+                <label for="cardNumber">Número de tarjeta</label>
+                <input type="text" id="cardNumber" required placeholder="XXXX XXXX XXXX XXXX">
+            </div>
+
+            <div class="card-row">
+                <div class="card-date">
+                    <label for="expiryDate">Fecha de expiración</label>
+                    <input type="text" id="expiryDate" required placeholder="MM/AA">
+                </div>
+
+                <div class="card-cvv">
+                    <label for="cvv">CVV</label>
+                    <input type="text" id="cvv" required placeholder="123">
+                </div>
+            </div>
+
+            <h5>Información de contacto</h5>
+
+            <div class="form-row">
+                <label for="email">Correo electrónico</label>
+                <input type="email" id="email" required placeholder="Para recibir tu confirmación">
+            </div>
+
+            <div class="form-row">
+                <label for="phone">Teléfono</label>
+                <input type="text" id="phone" required placeholder="En caso de que necesitemos contactarte">
+            </div>
+
+            <button type="submit" class="btn waves-effect waves-light complete-order-btn">
+                Completar pedido <i class="fas fa-check"></i>
+            </button>
+        </form>
+    </div>
+</div>
+
+<!-- Footer -->
+<footer>
+    <div class="footer-content">
+        <div class="footer-column">
+            <h4>CineBloom</h4>
+            <p>Tu cine favorito con la mejor experiencia cinematográfica. Disfruta de las películas más recientes con la mejor calidad de imagen y sonido.</p>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="footer-column">
+            <h4>Enlaces rápidos</h4>
+            <ul>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Cartelera</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Alimentos</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Promociones</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Nuestros cines</a></li>
+                <li><a href="#"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Contacto</h4>
+            <ul>
+                <li><a href="#"><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Ciudad</a></li>
+                <li><a href="#"><i class="fas fa-phone"></i> +123 456 7890</a></li>
+                <li><a href="#"><i class="fas fa-envelope"></i> info@cinebloom.com</a></li>
+            </ul>
+        </div>
+        <div class="footer-column">
+            <h4>Horarios</h4>
+            <ul>
+                <li><i class="fas fa-clock"></i> Lunes a Jueves: 13:00 - 23:00</li>
+                <li><i class="fas fa-clock"></i> Viernes a Domingo: 11:00 - 01:00</li>
+                <li><i class="fas fa-clock"></i> Feriados: 11:00 - 01:00</li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>&copy; 2025 CineBloom. Todos los derechos reservados.</p>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Inicializar componentes de Materialize
+        var elems = document.querySelectorAll('.sidenav');
+        var instances = M.Sidenav.init(elems);
+
+        var dropdowns = document.querySelectorAll('.dropdown-trigger');
+        var instances = M.Dropdown.init(dropdowns, {
+            coverTrigger: false,
+            constrainWidth: false
+        });
+
+        // Cargar los datos del carrito desde localStorage
+        const orderItems = document.getElementById('orderItems');
+        const orderTotal = document.getElementById('orderTotal');
+        const paymentForm = document.getElementById('paymentForm');
+
+        // Recuperar productos y subtotal
+        const checkoutItems = JSON.parse(localStorage.getItem('checkoutItems') || '[]');
+        const checkoutSubtotal = parseFloat(localStorage.getItem('checkoutSubtotal') || '0');
+
+        // Mostrar los productos en el resumen
+        if (checkoutItems.length > 0) {
+            checkoutItems.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                const itemElement = document.createElement('div');
+                itemElement.className = 'summary-item';
+                itemElement.innerHTML = `
+                    <div class="item-details">
+                        ${item.quantity}x ${item.name}
+                        <small>(${item.size})</small>
+                    </div>
+                    <div class="item-price">$${itemTotal.toFixed(2)}</div>
+                `;
+                orderItems.appendChild(itemElement);
+            });
+
+            // Mostrar el total
+            orderTotal.textContent = `$${checkoutSubtotal.toFixed(2)}`;
+        } else {
+            // Si no hay productos, mostrar mensaje
+            orderItems.innerHTML = '<p>No hay productos en tu carrito.</p>';
+            // Redirigir después de 3 segundos a la página de alimentos
+            setTimeout(() => {
+                window.location.href = 'cine.html';
+            }, 3000);
+        }
+
+        // Manejar el envío del formulario
+        paymentForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Validación básica
+            const cardNumber = document.getElementById('cardNumber').value;
+            const expiryDate = document.getElementById('expiryDate').value;
+            const cvv = document.getElementById('cvv').value;
+
+            // Simulación de procesamiento de pago
+            M.toast({html: 'Procesando tu pago...', classes: 'rounded blue', displayLength: 2000});
+
+            // Simulamos una espera de 2 segundos para el procesamiento
+            setTimeout(() => {
+                // Limpiar el carrito después de la compra
+                localStorage.removeItem('cineBloomCart');
+                localStorage.removeItem('checkoutItems');
+                localStorage.removeItem('checkoutSubtotal');
+
+                // Mostrar mensaje de éxito
+                M.toast({html: '¡Pago completado con éxito!', classes: 'rounded green', displayLength: 3000});
+
+                // Redirigir a una página de confirmación o a la página principal
+                setTimeout(() => {
+                    alert('¡Gracias por tu compra! Tu pedido ha sido procesado con éxito.');
+                    window.location.href = 'index.html';
+                }, 2000);
+            }, 2000);
+        });
+    });
+</script>
+</body>
+</html>

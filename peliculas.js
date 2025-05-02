@@ -12,7 +12,7 @@ const peliculas = [
         sinopsis: "Un grupo de supervillanos son reclutados por el gobierno para llevar a cabo misiones peligrosas a cambio de reducciones en sus sentencias.",
         imagen: "imagenes/Cartelera/Pelicula1.jpg",
         estreno: "2025-04-10",
-        trailer: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Reemplazar con URL real
+        trailer: "https://www.youtube.com/watch?v=N1GAypxl3XE", // Reemplazar con URL real
         salas: [
             {
                 cine: "CineBloom Central",
@@ -43,7 +43,7 @@ const peliculas = [
         sinopsis: "Los personajes de Looney Tunes se enfrentan a una amenaza alienígena que planea destruir la Tierra. Bugs Bunny y sus amigos deben unir fuerzas para salvar su hogar.",
         imagen: "imagenes/Cartelera/Pelicula2.jpg",
         estreno: "2025-03-15",
-        trailer: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Reemplazar con URL real
+        trailer: "https://www.youtube.com/watch?v=ip-5s8O28i0", // Reemplazar con URL real
         salas: [
             {
                 cine: "CineBloom Central",
@@ -74,7 +74,7 @@ const peliculas = [
         sinopsis: "Un niño descubre una antigua leyenda sobre una criatura mágica llamada Ochi que protege el bosque. Cuando los leñadores amenazan con destruir su hogar, el niño se embarca en una aventura para encontrar a Ochi y salvar el bosque.",
         imagen: "imagenes/Cartelera/Pelicula3.jpg",
         estreno: "2025-02-28",
-        trailer: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Reemplazar con URL real
+        trailer: "https://www.youtube.com/watch?v=pVKbzNK11B0", // Reemplazar con URL real
         salas: [
             {
                 cine: "CineBloom Plaza",
@@ -105,7 +105,7 @@ const peliculas = [
         sinopsis: "Un caracol con memoria fotográfica se convierte en testigo de la historia de un pequeño pueblo. A través de sus recuerdos, nos cuenta historias de varias generaciones y cómo la vida cambia lentamente con el paso del tiempo.",
         imagen: "imagenes/Cartelera/Pelicula4.jpg",
         estreno: "2025-03-05",
-        trailer: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Reemplazar con URL real
+        trailer: "https://www.youtube.com/watch?v=TpDWVaBlpJE", // Reemplazar con URL real
         salas: [
             {
                 cine: "CineBloom Central",

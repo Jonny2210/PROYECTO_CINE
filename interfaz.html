@@ -9,276 +9,72 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <!-- Materialize CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <style>
-        body {
-            background-color: #141414;
-            color: #ffffff;
-            font-family: 'Roboto', sans-serif;
-            background-image: url('imagenes/CineBloom/logoCineBloom.png');
-            background-size: cover;
-            background-position: center;
-            background-blend-mode: overlay;
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        
-        .login-container {
-            background-color: rgba(20, 20, 20, 0.9);
-            border-radius: 10px;
-            padding: 30px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.7);
-            backdrop-filter: blur(5px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        .brand-logo {
-            text-align: center;
-            margin-bottom: 20px;
-        }
-
-        .logo-image {
-            height: 80px;
-            margin-bottom: 15px;
-        }
-        
-        h1 {
-            color: #e50914;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 30px;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-        }
-        
-        .input-field input {
-            color: #ffffff !important;
-            border-bottom: 1px solid #555 !important;
-        }
-        
-        .input-field input:focus {
-            border-bottom: 1px solid #e50914 !important;
-            box-shadow: 0 1px 0 0 #e50914 !important;
-        }
-        
-        .input-field input:focus + label {
-            color: #e50914 !important;
-        }
-        
-        .input-field label {
-            color: #aaa;
-        }
-        
-        .input-field i {
-            color: #e50914;
-        }
-        
-        .btn-login {
-            background-color: #e50914;
-            width: 100%;
-            border-radius: 4px;
-            padding: 12px;
-            font-weight: 600;
-            font-size: 16px;
-            margin-top: 20px;
-            transition: all 0.3s ease;
-            text-align: center;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .btn-login:hover {
-            background-color: #f40612;
-            transform: translateY(-2px);
-            box-shadow: 0 6px 12px rgba(229, 9, 20, 0.3);
-        }
-        
-        .register-link {
-            margin-top: 20px;
-            font-size: 1rem;
-        }
-        
-        .register-link a {
-            color: #e50914;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .register-link a:hover {
-            text-decoration: underline;
-        }
-        
-        .separator {
-            display: flex;
-            align-items: center;
-            text-align: center;
-            margin: 30px 0;
-        }
-
-        .separator::before, .separator::after {
-            content: '';
-            flex: 1;
-            border-bottom: 1px solid #555;
-        }
-
-        .separator span {
-            padding: 0 10px;
-            color: #888;
-        }
-        
-        .social-login {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin: 20px 0;
-        }
-        
-        .social-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            background-color: #333;
-            transition: all 0.3s ease;
-        }
-        
-        .social-btn:hover {
-            transform: translateY(-3px);
-        }
-        
-        .social-btn i {
-            font-size: 20px;
-            color: #fff;
-        }
-        
-        .google { background-color: #DB4437; }
-        .facebook { background-color: #3b5998; }
-        .twitter { background-color: #1DA1F2; }
-        
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            color: #777;
-            font-size: 0.9rem;
-        }
-        
-        /* Animaciones */
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .login-container {
-            animation: fadeIn 0.8s ease forwards;
-        }
-        
-        /* Pequeños detalles de película */
-        .film-reel {
-            position: absolute;
-            opacity: 0.1;
-            z-index: -1;
-        }
-        
-        .film-reel-1 {
-            top: 20px;
-            left: 20px;
-            transform: rotate(-15deg);
-        }
-        
-        .film-reel-2 {
-            bottom: 20px;
-            right: 20px;
-            transform: rotate(25deg);
-        }
-        
-        /* Responsividad */
-        @media only screen and (max-width: 600px) {
-            .login-container {
-                padding: 20px;
-                margin: 0 20px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-        }
-    </style>
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="interfaz.css">
 </head>
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col s12 m8 offset-m2 l6 offset-l3">
-                <div class="login-container">
-                    <!-- Logo e ícono de cine -->
-                    <div class="brand-logo">
-                        <img src="imagenes/CineBloom/logoCineBloom_fondoTransparente.png" alt="CineBloom Logo" class="logo-image">
-                        <h1 class="center-align">CineBloom</h1>
+<div class="container">
+    <div class="row">
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+            <div class="login-container">
+                <div class="brand-logo">
+                    <img src="imagenes/CineBloom/logoCineBloom_fondoTransparente.png" alt="CineBloom Logo" class="logo-image">
+                    <h1 class="center-align">CineBloom</h1>
+                </div>
+
+                <form method="POST" action="index.html">
+                    <div class="input-field">
+                        <i class="fas fa-user prefix"></i>
+                        <input type="text" name="nombre_usuario" id="nombre_usuario" required />
+                        <label for="nombre_usuario">Nombre de Usuario</label>
                     </div>
-                    
-                    <form method="POST" action="index.html">
-                        <div class="input-field">
-                            <i class="fas fa-user prefix"></i>
-                            <input type="text" name="nombre_usuario" id="nombre_usuario" required />
-                            <label for="nombre_usuario">Nombre de Usuario</label>
-                        </div>
-                        
-                        <div class="input-field">
-                            <i class="fas fa-lock prefix"></i>
-                            <input type="password" name="password" id="password" required />
-                            <label for="password">Contraseña</label>
-                        </div>
-                        
-                        <div class="right-align">
-                            <a href="#" class="white-text">¿Olvidaste tu contraseña?</a>
-                        </div>
-                        
-                        <button class="btn btn-login waves-effect waves-light center-align" type="submit">
-                            Iniciar Sesión
-                        </button>
-                    </form>
-                    
-                    <div class="separator">
-                        <span>O</span>
+
+                    <div class="input-field">
+                        <i class="fas fa-lock prefix"></i>
+                        <input type="password" name="password" id="password" required />
+                        <label for="password">Contraseña</label>
                     </div>
-                    
-                    <div class="social-login">
-                        <a href="#" class="social-btn google">
-                            <i class="fab fa-google"></i>
-                        </a>
-                        <a href="#" class="social-btn facebook">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="social-btn twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
+
+                    <div class="right-align">
+                        <a href="#" class="white-text">¿Olvidaste tu contraseña?</a>
                     </div>
-                    
-                    <div class="center-align register-link">
-                        <p>¿Aún no tienes una cuenta? <a href="registroLogin.php">Regístrate</a></p>
-                    </div>
+
+                    <button class="btn btn-login waves-effect waves-light center-align" type="submit">
+                        Iniciar Sesión
+                    </button>
+                </form>
+
+                <div class="separator">
+                    <span>O</span>
+                </div>
+
+                <div class="social-login">
+                    <a href="#" class="social-btn google"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social-btn facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+
+                <div class="center-align register-link">
+                    <p>¿Aún no tienes una cuenta? <a href="registroLogin.php" style="color: #d6b36a;">Regístrate</a></p>
+
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <!-- Elementos decorativos de cine -->
-    <div class="film-reel film-reel-1">
-        <img src="imagenes/CineBloom/logoCineBloom_fondoTransparente.png" alt="Film Reel" width="150" height="150">
-    </div>
-    <div class="film-reel film-reel-2">
-        <img src="imagenes/CineBloom/logoCineBloom_fondoTransparente.png" alt="Film Reel" width="150" height="150">
-    </div>
+<div class="film-reel film-reel-1">
+    <img src="imagenes/CineBloom/logoCineBloom_fondoTransparente.png" alt="Film Reel" width="150" height="150">
+</div>
+<div class="film-reel film-reel-2">
+    <img src="imagenes/CineBloom/logoCineBloom_fondoTransparente.png" alt="Film Reel" width="150" height="150">
+</div>
 
-    <footer>
-        <p>&copy; 2025 CineBloom - Todos los derechos reservados</p>
-    </footer>
-    
-    <!-- JavaScript -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<footer>
+    <p>&copy; 2025 CineBloom - Todos los derechos reservados</p>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 </body>
 </html>
