@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagenes/CineBloom/logoCineBloom(favicon).ico" type="image/x-icon">
+    <title>CineBloom - Comprar Boletos</title>
+    <!-- Material Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #d6b36a;
+            --secondary-color: #141414;
+            --accent-color: #f40612;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+            --text-muted: #888888;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--secondary-color);
+            color: var(--text-light);
+            overflow-x: hidden;
+        }
+
+        /* Header y Navegación */
+        nav {
+            background-color: rgba(20, 20, 20, 0.9);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+            padding: 0 20px;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        nav .brand-logo {
+            display: flex;
+            align-items: center;
+            color: var(--primary-color);
+        }
+
+        nav .brand-logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        nav ul a {
+            color: var(--text-light);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        nav ul a:hover {
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+
+        .sidenav {
+            background-color: var(--secondary-color);
+        }
+
+        .sidenav li a {
+            color: var(--text-light);
+        }
+
+        .sidenav li a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Contenido principal */
+        .main-content {
+            padding: 100px 0 50px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* Información de película */
+        .movie-info {
+            display: flex;
+            align-items: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid rgba(214, 179, 106, 0.3);
+            padding-bottom: 30px;
+        }
+
+        .movie-thumbnail {
+            width: 120px;
+            margin-right: 20px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .movie-info-text h2 {
+            color: var(--primary-color);
+            margin: 0;
+            font-size: 2rem;
+        }
+
+        /* Pasos de compra */
+        .step-container {
+            margin-bottom: 40px;
+        }
+
+        .step-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            background-color: rgba(214, 179, 106, 0.1);
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .step-number {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.2rem;
+            margin-right: 15px;
+        }
+
+        .step-title {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--primary-color);
+        }
+
+        /* Selects personalizados */
+        .input-field label {
+            color: var(--text-light);
+        }
+
+        .input-field input[type=text]:focus + label,
+        .input-field .prefix.active {
+            color: var(--primary-color);
+        }
+
+        .input-field input[type=text]:focus,
+        .input-field input[type=text].valid {
+            border-bottom: 1px solid var(--primary-color);
+            box-shadow: 0 1px 0 0 var(--primary-color);
+        }
+
+        .select-wrapper input.select-dropdown {
+            color: var(--text-light);
+            border-bottom-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .select-wrapper .caret {
+            fill: var(--primary-color);
+        }
+
+        .dropdown-content li > span {
+            color: var(--secondary-color);
+        }
+
+        .dropdown-content li.selected > span {
+            background-color: rgba(214, 179, 106, 0.2);
+        }
+
+        /* Sección de butacas */
+        #butacas-section {
+            display: none;
+        }
+
+        .butacas-container {
+            margin: 30px 0;
+            text-align: center;
+            position: relative;
+        }
+
+        .butacas-fila {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .fila-indicador {
+            width: 30px;
+            height: 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-light);
+            font-weight: 600;
+            margin-right: 10px;
+        }
+
+        .butaca {
+            width: 35px;
+            height: 35px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 5px;
+            border-radius: 5px;
+            color: var(--text-light);
+            cursor: pointer;
+            font-size: 0.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .butaca.disponible {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .butaca.ocupada {
+            background-color: rgba(244, 6, 18, 0.2);
+            border: 1px solid rgba(244, 6, 18, 0.5);
+            color: var(--text-muted);
+            cursor: not-allowed;
+        }
+
+        .butaca.seleccionada {
+            background-color: rgba(214, 179, 106, 0.6);
+            border: 1px solid var(--primary-color);
+            color: var(--secondary-color);
+            font-weight: 700;
+            transform: scale(1.1);
+        }
+
+        /* Leyenda de butacas */
+        .butacas-leyenda {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .leyenda-item {
+            display: flex;
+            align-items: center;
+            margin: 0 10px;
+        }
+
+        .leyenda-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 3px;
+            margin-right: 10px;
+        }
+
+        .leyenda-disponible {
+            background-color: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .leyenda-ocupada {
+            background-color: rgba(244, 6, 18, 0.2);
+            border: 1px solid rgba(244, 6, 18, 0.5);
+        }
+
+        .leyenda-seleccionada {
+            background-color: rgba(214, 179, 106, 0.6);
+            border: 1px solid var(--primary-color);
+        }
+
+        /* Pantalla del cine */
+        .pantalla-container {
+            margin: 30px auto;
+            text-align: center;
+            position: relative;
+            max-width: 500px;
+        }
+
+        .pantalla {
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 5px 5px 0 0;
+            box-shadow: 0 -10px 20px rgba(214, 179, 106, 0.3);
+            margin-bottom: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .pantalla::before {
+            content: 'PANTALLA';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            letter-spacing: 5px;
+            font-weight: 500;
+        }
+
+        .pantalla::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, transparent, var(--primary-color), transparent);
+        }
+
+        /* Información de asientos seleccionados */
+        .asientos-seleccionados {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .asientos-seleccionados h4 {
+            color: var(--primary-color);
+            border-bottom: 1px solid rgba(214, 179, 106, 0.3);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+        }
+
+        .asientos-lista {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .asiento-etiqueta {
+            background-color: rgba(214, 179, 106, 0.2);
+            color: var(--primary-color);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        /* Sección de pago */
+        #pago-section {
+            display: none;
+        }
+
+        .payment-methods {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .payment-method {
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 15px;
+            flex: 1;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .payment-method:hover, .payment-method.selected {
+            border-color: var(--primary-color);
+            background-color: rgba(214, 179, 106, 0.1);
+        }
+
+        .payment-method i {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: var(--text-light);
+        }
+
+        .payment-method.selected i {
+            color: var(--primary-color);
+        }
+
+        .payment-form {
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+
+        /* Resumen de compra */
+        .purchase-summary {
+            background-color: rgba(214, 179, 106, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        .summary-header {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--primary-color);
+            border-bottom: 1px solid rgba(214, 179, 106, 0.3);
+            padding-bottom: 10px;
+            margin-bottom: 15px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+        }
+
+        .summary-label {
+            color: var(--text-muted);
+        }
+
+        .summary-value {
+            font-weight: 500;
+        }
+
+        .summary-total {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 2px solid rgba(214, 179, 106, 0.3);
+            font-weight: 700;
+            font-size: 1.2rem;
+        }
+
+        .summary-total .summary-value {
+            color: var(--primary-color);
+        }
+
+        /* Botones de navegación */
+        .nav-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+
+        .btn-nav {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            padding: 12px 24px;
+            border-radius: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+        }
+
+        .btn-nav:hover {
+            background-color: rgba(214, 179, 106, 0.1);
+        }
+
+        .btn-nav.forward {
+            background-color: var(--primary-color);
+            color: var(--secondary-color);
+        }
+
+        .btn-nav.forward:hover {
+            background-color: #e9cb8c;
+        }
+
+        .btn-nav i {
+            margin: 0 8px;
+        }
+
+        /* Animaciones */
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 1.5s infinite;
+        }
+
+        /* Mensaje de éxito */
+        #success-section {
+            display: none;
+            text-align: center;
+            padding: 50px 0;
+        }
+
+        .success-icon {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(46, 204, 113, 0.2);
+            border-radius: 50%;
+            margin: 0 auto 30px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .success-icon i {
+            color: #2ecc71;
+            font-size: 50px;
+        }
+
+        .success-title {
+            color: var(--primary-color);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+
+        .ticket-code {
+            background-color: rgba(214, 179, 106, 0.1);
+            border: 1px dashed var(--primary-color);
+            padding: 15px;
+            border-radius: 10px;
+            max-width: 300px;
+            margin: 0 auto 30px;
+            font-family: monospace;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: var(--primary-color);
+        }
+
+        .ticket-info {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            background-color: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            padding: 20px;
+        }
+
+        .ticket-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .ticket-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .ticket-label {
+            color: var(--text-muted);
+        }
+
+        .qr-code {
+            background-color: #fff;
+            width: 150px;
+            height: 150px;
+            margin: 0 auto 30px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .qr-code img {
+            width: 90%;
+            height: 90%;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .payment-methods {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .movie-info {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .movie-thumbnail {
+                margin-right: 0;
+                margin-bottom: 20px;
+            }
+
+            .movie-info-text {
+                text-align: center;
+            }
+
+            .butacas-fila {
+                flex-wrap: wrap;
+            }
+
+            .nav-buttons {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .btn-nav {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .butaca {
+                width: 30px;
+                height: 30px;
+                font-size: 0.7rem;
+            }
+
+            .step-title {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<!-- Navegación -->
+<nav>
+    <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo">
+            <img src="imagenes/CineBloom/logoCineBloom.png" alt="CineBloom Logo">
+            CineBloom
+        </a>
+        <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="index.html">Inicio</a></li>
+            <li><a href="cartelera.html">Cartelera</a></li>
+            <li><a href="cines.html">Cines</a></li>
+            <li><a href="promociones.html">Promociones</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- Menú móvil -->
+<ul class="sidenav" id="mobile-menu">
+    <li><a href="index.html">Inicio</a></li>
+    <li><a href="cartelera.html">Cartelera</a></li>
+    <li><a href="cines.html">Cines</a></li>
+    <li><a href="promociones.html">Promociones</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+</ul>
+
+<!-- Contenido principal -->
+<div class="main-content">
+    <div class="container">
+        <!-- Información de la película -->
+        <div class="movie-info">
+            <img src="" alt="Poster de la película" class="movie-thumbnail" id="pelicula-poster">
+            <div class="movie-info-text">
+                <h2 id="pelicula-titulo"></h2>
+                <p id="pelicula-detalles"></p>
+            </div>
+        </div>
+
+        <!-- Paso 1: Selección de función -->
+        <div class="step-container" id="funcion-section">
+            <div class="step-header">
+                <div class="step-number">1</div>
+                <div class="step-title">Selecciona la función</div>
+            </div>
+            <div class="row">
+                <div class="col s12 m4">
+                    <div class="input-field">
+                        <select id="select-cine" class="browser-default">
+                            <option value="" disabled selected>Selecciona un cine</option>
+                            <option value="1">CineBloom Plaza Central</option>
+                            <option value="2">CineBloom Las Américas</option>
+                            <option value="3">CineBloom Polanco</option>
+                            <option value="4">CineBloom Santa Fe</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="input-field">
+                        <select id="select-fecha" class="browser-default">
+                            <option value="" disabled selected>Selecciona una fecha</option>
+                            <!-- Se llenarán con JavaScript -->
+                        </select>
+                    </div>
+                </div>
+                <div class="col s12 m4">
+                    <div class="input-field">
+                        <select id="select-hora" class="browser-default">
+                            <option value="" disabled selected>Selecciona una hora</option>
+                            <!-- Se llenarán con JavaScript -->
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="input-field">
+                        <select id="select-formato" class="browser-default">
+                            <option value="" disabled selected>Selecciona un formato</option>
+                            <option value="standard">Estándar</option>
+                            <option value="3d">3D</option>
+                            <option value="imax">IMAX</option>
+                            <option value="4dx">4DX</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="input-field">
+                        <select id="select-idioma" class="browser-default">
+                            <option value="" disabled selected>Selecciona un idioma</option>
+                            <option value="esp">Español</option>
+                            <option value="eng-sub">Inglés con subtítulos</option>
+                            <option value="eng">Inglés</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-buttons">
+                <a href="#" class="btn-nav back" onclick="volver()" style="visibility: hidden;">
+                    <i class="fas fa-arrow-left"></i> Volver
+                </a>
+                <a href="#" class="btn-nav forward" onclick="continuarAButacas()">
+                    Continuar <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Paso 2: Selección de butacas -->
+        <div class="step-container" id="butacas-section">
+            <div class="step-header">
+                <div class="step-number">2</div>
+                <div class="step-title">Selecciona tus butacas</div>
+            </div>
+
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="input-field">
+                        <select id="select-boletos" class="browser-default">
+                            <option value="" disabled selected>Número de boletos</option>
+                            <option value="1">1 Boleto</option>
+                            <option value="2">2 Boletos</option>
+                            <option value="3">3 Boletos</option>
+                            <option value="4">4 Boletos</option>
+                            <option value="5">5 Boletos</option>
+                            <option value="6">6 Boletos</option>
+                            <option value="7">7 Boletos</option>
+                            <option value="8">8 Boletos</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col s12 m6">
+                    <div class="input-field">
+                        <select id="select-tipo-boleto" class="browser-default">
+                            <option value="" disabled selected>Tipo de boleto</option>
+                            <option value="general">General ($120)</option>
+                            <option value="preferente">Preferente ($150)</option>
+                            <option value="vip">VIP ($200)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Pantalla -->
+            <div class="pantalla-container">
+                <div class="pantalla"></div>
+            </div>
+
+            <!-- Butacas -->
+            <div class="butacas-container" id="butacas-container">
+                <!-- Se generan dinámicamente con JavaScript -->
+            </div>
+
+            <!-- Leyenda -->
+            <div class="butacas-leyenda">
+                <div class="leyenda-item">
+                    <div class="leyenda-color leyenda-disponible"></div>
+                    <span>Disponible</span>
+                </div>
+                <div class="leyenda-item">
+                    <div class="leyenda-color leyenda-seleccionada"></div>
+                    <span>Seleccionada</span>
+                </div>
+                <div class="leyenda-item">
+                    <div class="leyenda-color leyenda-ocupada"></div>
+                    <span>Ocupada</span>
+                </div>
+            </div>
+
+            <!-- Asientos seleccionados -->
+            <div class="asientos-seleccionados">
+                <h4>Butacas seleccionadas</h4>
+                <div class="asientos-lista" id="asientos-seleccionados-lista">
+                    <!-- Se generan dinámicamente con JavaScript -->
+                </div>
+                <p id="asientos-mensaje">No has seleccionado ninguna butaca</p>
+            </div>
+
+            <div class="nav-buttons">
+                <a href="#" class="btn-nav back" onclick="volverAFuncion()">
+                    <i class="fas fa-arrow-left"></i> Volver
+                </a>
+                <a href="#" class="btn-nav forward" onclick="continuarAPago()">
+                    Continuar <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+
+        <!-- Paso 3: Pago -->
+        <div class="step-container" id="pago-section">
+            <div class="step-header">
+                <div class="step-number">3</div>
+                <div class="step-title">Proceso de pago</div>
+            </div>
+
+            <div class="payment-methods">
+                <div class="payment-method selected" data-method="card">
+                    <i class="fas fa-credit-card"></i>
+                    <h5>Tarjeta de crédito</h5>
+                </div>
+                <div class="payment-method" data-method="paypal">
+                    <i class="fab fa-paypal"></i>
+                    <h5>PayPal</h5>
+                </div>
+                <div class="payment-method" data-method="transfer">
+                    <i class="fas fa-university"></i>
+                    <h5>Transferencia</h5>
+                </div>
+            </div>
+
+            <div class="payment-form">
+                <div class="row">
+                    <div class="col s12">
+                        <div class="input-field">
+                            <input id="card-name" type="text" class="white-text">
+                            <label for="card-name">Nombre en la tarjeta</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s12">
+                        <div class="input-field">
+                            <input id="card-number" type="text" class="white-text">
+                            <label for="card-number">Número de tarjeta</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col s6">
+                        <div class="input-field">
+                            <input id="card-expiry" type="text" class="white-text">
+                            <label for="card-expiry">Fecha de expiración (MM/AA)</label>
+                        </div>
+                    </div>
+                    <div class="col s6">
+                        <div class="input-field">
+                            <input id="card-cvv" type="text" class="white-text">
