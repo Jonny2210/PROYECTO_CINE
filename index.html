@@ -13,6 +13,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <!-- Archivo CSS personalizado -->
     <link rel="stylesheet" href="index.css">
+    <!-- SweetAlert2 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css" rel="stylesheet">
 </head>
 <body>
 <!-- Navegación -->
@@ -40,7 +42,7 @@
                     <li><a href="#"><i class="fas fa-ticket-alt"></i> Mis entradas</a></li>
                     <li><a href="#"><i class="fas fa-heart"></i> Favoritos</a></li>
                     <li class="divider"></li>
-                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+                    <li><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
                 </ul>
             </li>
         </ul>
@@ -58,7 +60,7 @@
     <li><a href="#"><i class="fas fa-user"></i> Mi perfil</a></li>
     <li><a href="#"><i class="fas fa-ticket-alt"></i> Mis entradas</a></li>
     <li><a href="#"><i class="fas fa-heart"></i> Favoritos</a></li>
-    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+    <li><a href="#" id="logout-btn-mobile"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
 </ul>
 
 <!-- Banner Principal -->
@@ -152,6 +154,8 @@
 </footer>
 
 <!-- Scripts -->
+ <!-- SweetAlert2 JS -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 <script src="peliculas.js"></script>
 <script>
@@ -172,5 +176,100 @@
         cargarPeliculasEnCartelera();
     });
 </script>
+
+<!-- Firebase SDK -->
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
+    import { 
+      getAuth, 
+      signOut,
+      onAuthStateChanged
+    } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
+  
+    // Configuración de Firebase 
+    const firebaseConfig = {
+      apiKey: "AIzaSyD29pQ5TeElpE6VYZ25NmTohdnJsgr4zgo",
+      authDomain: "proyecto-de-cine.firebaseapp.com",
+      projectId: "proyecto-de-cine",
+      storageBucket: "proyecto-de-cine.firebasestorage.app",
+      messagingSenderId: "178139206221",
+      appId: "1:178139206221:web:e1b6f001c58268ce330204"
+    };
+  
+    // Inicializa Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    // Cierre de sesión para menú móvil
+document.getElementById('logout-btn-mobile').addEventListener('click', function(e) {
+  e.preventDefault();
+  document.getElementById('logout-btn').click(); // Reutiliza la lógica del botón de escritorio
+});
+
+// Cierra el sidenav al hacer clic en "Cerrar sesión"
+const sidenav = M.Sidenav.getInstance(document.querySelector('.sidenav'));
+document.getElementById('logout-btn-mobile').addEventListener('click', () => {
+  sidenav.close();
+});
+
+// Cerrar sesión con confirmación
+document.getElementById('logout-btn').addEventListener('click', async (e) => {
+  e.preventDefault();
+  
+  // Mostrar confirmación
+  const { isConfirmed } = await Swal.fire({
+    title: '¿Cerrar sesión?',
+    text: "¿Estás seguro de que quieres salir de tu cuenta?",
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonColor: '#d6b36a', // Color dorado que coincide con tu tema
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Sí, cerrar sesión',
+    cancelButtonText: 'Cancelar',
+    backdrop: 'rgba(0,0,0,0.5)'
+  });
+
+  if (isConfirmed) {
+    try {
+      await signOut(auth);
+      
+      // Feedback visual al usuario
+      await Swal.fire({
+        title: 'Sesión cerrada',
+        text: 'Has cerrado sesión correctamente',
+        icon: 'success',
+        confirmButtonColor: '#d6b36a',
+        timer: 1500
+      });
+      
+      // Redirigir al login
+      window.location.href = "/login.html";
+    } catch (error) {
+      Swal.fire({
+        title: 'Error',
+        text: 'No se pudo cerrar sesión: ' + error.message,
+        icon: 'error',
+        confirmButtonColor: '#d33'
+      });
+    }
+  }
+});
+
+// Verificar estado de autenticación
+onAuthStateChanged(auth, (user) => {
+  const userProfile = document.querySelector('.user-profile');
+  const userName = document.querySelector('.user-actions a');
+  
+  if (user) {
+    // Usuario logueado
+    userProfile.src = user.photoURL || 'imagenes/Usuario/Usuario.jpg';
+    userName.innerHTML = `${user.displayName || 'Usuario'} <i class="fas fa-chevron-down"></i>`;
+  } else {
+    // No logueado - redirigir a login
+    window.location.href = "/login.html";
+  }
+});
+  </script>
+
 </body>
 </html>

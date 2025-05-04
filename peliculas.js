@@ -136,7 +136,7 @@ const peliculas = [
         sinopsis: "Un grupo de amigos es transportado al mundo de Minecraft donde deben aprender a sobrevivir, construir y luchar contra los monstruos de la noche para encontrar un camino de regreso a casa.",
         imagen: "imagenes/Cartelera/Pelicula5.jpg",
         estreno: "2025-01-25",
-        trailer: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Reemplazar con URL real
+        trailer: "https://www.youtube.com/watch?v=wJO_vIDZn-I", // Reemplazar con URL real
         salas: [
             {
                 cine: "CineBloom Central",

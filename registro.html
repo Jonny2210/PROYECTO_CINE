@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagenes/CineBloom/logoCineBloom(favicon).ico" type="image/x-icon">
+    <title>CineBloom - Registro</title>
+    <!-- Material Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- CSS externo -->
+    <link rel="stylesheet" href="interfaz.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col s12 m8 offset-m2 l6 offset-l3">
+            <div class="login-container">
+                <div class="brand-logo">
+                    <img src="imagenes/CineBloom/logoCineBloom_fondoTransparente.png" alt="CineBloom Logo" class="logo-image">
+                    <h1 class="center-align">CineBloom</h1>
+                </div>
+
+                <!-- Área de mensajes para feedback al usuario -->
+                <div id="message-area" class="center-align" style="margin: 10px 0; display: none;">
+                    <div id="message" class="card-panel"></div>
+                </div>
+
+                <form id="register-form">
+                    <div class="input-field">
+                        <i class="fas fa-user prefix"></i>
+                        <input type="text" name="displayName" id="displayName" required />
+                        <label for="displayName">Nombre Completo</label>
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-envelope prefix"></i>
+                        <input type="email" name="email" id="email" required />
+                        <label for="email">Correo Electrónico</label>
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-lock prefix"></i>
+                        <input type="password" name="password" id="password" minlength="6" required />
+                        <label for="password">Contraseña</label>
+                    </div>
+
+                    <div class="input-field">
+                        <i class="fas fa-lock prefix"></i>
+                        <input type="password" name="confirm-password" id="confirm-password" minlength="6" required />
+                        <label for="confirm-password">Confirmar Contraseña</label>
+                    </div>
+
+                    <button class="btn btn-login waves-effect waves-light center-align" type="submit">
+                        Registrarse
+                    </button>
+                </form>
+
+                <div class="separator">
+                    <span>O</span>
+                </div>
+
+                <div class="social-login">
+                    <a href="#" class="social-btn google" id="google-login"><i class="fab fa-google"></i></a>
+                    <a href="#" class="social-btn facebook" id="facebook-login"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-btn twitter" id="twitter-login"><i class="fab fa-twitter"></i></a>
+                </div>
+
+                <div class="center-align register-link">
+                    <p>¿Ya tienes una cuenta? <a href="login.html" style="color: #d6b36a;">Inicia Sesión</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Firebase SDK v9 (Modular) -->
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-app.js";
+  import { 
+    getAuth, 
+    createUserWithEmailAndPassword,
+    updateProfile,
+    signInWithPopup,
+    GoogleAuthProvider,
+    FacebookAuthProvider,
+    TwitterAuthProvider,
+    onAuthStateChanged
+  } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-auth.js";
+  import { 
+    getFirestore, 
+    doc, 
+    setDoc,
+    serverTimestamp 
+  } from "https://www.gstatic.com/firebasejs/9.6.0/firebase-firestore.js";
+
+  // Configuración de Firebase
+  const firebaseConfig = {
+    apiKey: "AIzaSyD29pQ5TeElpE6VYZ25NmTohdnJsgr4zgo",
+    authDomain: "proyecto-de-cine.firebaseapp.com",
+    projectId: "proyecto-de-cine",
+    storageBucket: "proyecto-de-cine.firebasestorage.app",
+    messagingSenderId: "178139206221",
+    appId: "1:178139206221:web:e1b6f001c58268ce330204",
+    measurementId: "G-BDK59BSM4J"
+  };
+
+  // Inicializa Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+  
+  // Proveedores para autenticación social
+  const googleProvider = new GoogleAuthProvider();
+  const facebookProvider = new FacebookAuthProvider();
+  const twitterProvider = new TwitterAuthProvider();
+
+  // Verificar estado de autenticación
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      window.location.href = "index.html";
+    }
+  });
+
+  // Mostrar mensajes
+  function showMessage(message, isError = false) {
+    const messageArea = document.getElementById('message-area');
+    const messageElement = document.getElementById('message');
+    
+    messageElement.textContent = message;
+    messageElement.className = isError ? 
+      'card-panel red lighten-4 red-text text-darken-4' : 
+      'card-panel green lighten-4 green-text text-darken-4';
+    
+    messageArea.style.display = 'block';
+    
+    setTimeout(() => {
+      messageArea.style.display = 'none';
+    }, 5000);
+  }
+
+  // Guardar usuario en Firestore (versión segura)
+  async function saveUserToFirestore(userId, userData) {
+    try {
+      await setDoc(doc(db, 'users', userId), {
+        ...userData,
+        createdAt: serverTimestamp(),
+        lastLogin: serverTimestamp()
+      });
+    } catch (error) {
+      console.error("Error al guardar usuario:", error);
+      throw error;
+    }
+  }
+
+  // Registro con email y contraseña
+  document.getElementById('register-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const displayName = document.getElementById('displayName').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+
+    // Validaciones
+    if (password !== confirmPassword) {
+      showMessage('Las contraseñas no coinciden', true);
+      return;
+    }
+
+    try {
+      // 1. Crear usuario en Authentication
+      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+      
+      // 2. Actualizar perfil con nombre
+      await updateProfile(userCredential.user, { displayName });
+      
+      // 3. Guardar datos seguros en Firestore (sin contraseña)
+      await saveUserToFirestore(userCredential.user.uid, {
+        displayName,
+        email,
+        provider: "email",
+        emailVerified: false
+      });
+
+      showMessage('¡Registro exitoso! Redirigiendo...');
+      setTimeout(() => window.location.href = "index.html", 1500);
+      
+    } catch (error) {
+      let errorMessage = "Error al registrar: ";
+      switch(error.code) {
+        case 'auth/email-already-in-use':
+          errorMessage += "El email ya está registrado";
+          break;
+        case 'auth/invalid-email':
+          errorMessage += "Email inválido";
+          break;
+        case 'auth/weak-password':
+          errorMessage += "Contraseña débil (mínimo 6 caracteres)";
+          break;
+        default:
+          errorMessage += error.message;
+      }
+      showMessage(errorMessage, true);
+    }
+  });
+
+  // Registro con Google
+  document.getElementById('google-login').addEventListener('click', async (e) => {
+    e.preventDefault();
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      const user = result.user;
+      
+      await saveUserToFirestore(user.uid, {
+        displayName: user.displayName,
+        email: user.email,
+        provider: "google",
+        emailVerified: user.emailVerified
+      });
+      
+      showMessage('¡Bienvenido! Redirigiendo...');
+      setTimeout(() => window.location.href = "index.html", 1500);
+    } catch (error) {
+      showMessage(`Error con Google: ${error.message}`, true);
+    }
+  });
+
+  // Registro con Facebook
+  document.getElementById('facebook-login').addEventListener('click', async (e) => {
+    e.preventDefault();
+    try {
+      const result = await signInWithPopup(auth, facebookProvider);
+      const user = result.user;
+      
+      await saveUserToFirestore(user.uid, {
+        displayName: user.displayName,
+        email: user.email || null,
+        provider: "facebook",
+        emailVerified: user.emailVerified
+      });
+      
+      showMessage('¡Bienvenido! Redirigiendo...');
+      setTimeout(() => window.location.href = "index.html", 1500);
+    } catch (error) {
+      showMessage(`Error con Facebook: ${error.message}`, true);
+    }
+  });
+
+  // Registro con Twitter
+  document.getElementById('twitter-login').addEventListener('click', async (e) => {
+    e.preventDefault();
+    try {
+      const result = await signInWithPopup(auth, twitterProvider);
+      const user = result.user;
+      
+      await saveUserToFirestore(user.uid, {
+        displayName: user.displayName,
+        email: user.email || null,
+        provider: "twitter",
+        emailVerified: user.emailVerified
+      });
+      
+      showMessage('¡Bienvenido! Redirigiendo...');
+      setTimeout(() => window.location.href = "index.html", 1500);
+    } catch (error) {
+      showMessage(`Error con Twitter: ${error.message}`, true);
+    }
+  });
+</script>
+
+<!-- JQuery y Materialize -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+</body>
+</html>
