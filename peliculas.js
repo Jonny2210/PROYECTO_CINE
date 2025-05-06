@@ -154,6 +154,192 @@ const peliculas = [
                 formato: ["2D"]
             }
         ]
+    },
+    {
+        id: 6,
+        titulo: "El Contador 2",
+        generos: ["Acción", "Drama"],
+        duracion: 133,
+        clasificacion: "B 15",
+        rating: 7.1,
+        director: "Gavin O´Connor",
+        actores: ["Ben Affleck", "Jon Bernthal", "Cynthia Addai-Robinson"],
+        sinopsis: "Christian Wolff (Ben Affleck) tiene un don para resolver problemas complejos. Cuando asesinan a un viejo conocido —quien deja un mensaje críptico para “encontrar al contador”—, Wolff se siente obligado a resolver el caso. Al darse cuenta de que se necesitan medidas más extremas, Wolff recluta a su hermano, de quien está distanciado y es muy letal, Brax (Jon Bernthal), para que le ayude. En colaboración con Marybeth Medina (Cynthia Addai-Robinson), subdirectora del Tesoro de Estados Unidos, descubren una conspiración mortal y se convierten en objetivo de una red de asesinos despiadados que no se detendrán ante nada para mantener sus secretos enterrados.",
+        imagen: "imagenes/Cartelera/Pelicula6.jpg",
+        estreno: "2025-04-24",
+        trailer: "https://www.youtube.com/watch?v=8CdW4Lgbca0", // Reemplazar con URL real
+        salas: [
+            {
+                cine: "CineBloom Central",
+                horarios: ["16:30", "18:45", "21:00"],
+                formato: ["2D", "IMAX"]
+            },
+            {
+                cine: "CineBloom Plaza",
+                horarios: ["14:00", "16:15", "21:30"],
+                formato: ["2D", "IMAX"]
+            },
+            {
+                cine: "CineBloom Norte",
+                horarios: ["16:00", "19:15", "22:00"],
+                formato: ["2D", "3D"]
+            }
+        ]
+    },
+    {
+        id: 7,
+        titulo: "Un Cuento De Pescadores La Maldición De La Miringua",
+        generos: ["Terror"],
+        duracion: 93,
+        clasificacion: "B 15",
+        rating: 8.2,
+        director: "Edgar Nito",
+        actores: ["Jorge A. Jiménez", "Alejandra Herrera", "Renata Vaca", "Andrés Delgado"],
+        sinopsis: "En un pueblo pesquero en el lago de Pátzcuaro comienzan a ocurrir sucesos paranormales, los peces del lago se mueren y los pescadores creen haber visto a un espectro en los alrededores. Cuenta la leyenda que se trata de La Miringua, una encarnación del mal que está aterrorizando al pueblo para castigar a los pecadores y arrastrarlos al fondo del lago. Nadie estará a salvo de la maldición de La Miringua.",
+        imagen: "imagenes/Cartelera/Pelicula7.jpg",
+        estreno: "2025-05-03",
+        trailer: "https://www.youtube.com/watch?v=r_-J0k1qOLo", // Reemplazar con URL real
+        salas: [
+            {
+                cine: "CineBloom Central",
+                horarios: ["12:30", "18:00", "21:00"],
+                formato: ["2D", "IMAX"]
+            },
+            {
+                cine: "CineBloom Plaza",
+                horarios: ["15:00", "18:15", "21:30"],
+                formato: ["IMAX"]
+            },
+            {
+                cine: "CineBloom Norte",
+                horarios: ["13:00", "16:15", "22:00"],
+                formato: ["2D", "3D"]
+            }
+        ]
+    },
+    {
+        id: 8,
+        titulo: "BjöRk Cornucopia",
+        generos: ["Musical"],
+        duracion: 120,
+        clasificacion: "TDB",
+        rating: 8.5,
+        director: "Isold Uggadóttir",
+        actores: ["Björk", "Viibra Flutes", "Manu Delago", "Bergur Þórisson"],
+        sinopsis: "Esta experiencia cinematográfica sin precedentes transporta a los espectadores al corazón del espectacular universo escénico de Björk, desplegando un viaje musical que recorre desde sus legendarios éxitos iniciales hasta las revolucionarias obras Utopia (2017) y Fossora (2023). El espectáculo deslumbra con instrumentos únicos creados exclusivamente para la artista —el arpa magnética, la flauta circular, el alufón y la cámara nde reverberación— mientras Björk brilla en escena rodeada de talentos extraordinarios: el director musical y multiinstrumentista Bergur Þórisson, el percusionista Manu Delago, el septeto de flautas Viibra, la arpista Katie Buckley y el coro Hamrahlid. Las cortinas digitales animadas crean una moderna linterna mágica para la música en vivo, transformando las vanguardistas imágenes de realidad virtual del siglo XXI en la majestuosidad de un teatro decimonónico, ahora potenciada por la inmersión total del meticuloso sonido espacial Dolby Atmos.",
+        imagen: "imagenes/Cartelera/Pelicula8.jpg",
+        estreno: "2025-05-07",
+        trailer: "https://youtu.be/awsMKijTZ1E", // Reemplazar con URL real
+        salas: [
+            {
+                cine: "CineBloom Central",
+                horarios: ["16:30", "18:00", "21:00"],
+                formato: ["2D"]
+            },
+            {
+                cine: "CineBloom Plaza",
+                horarios: ["17:00", "18:30", "21:30"],
+                formato: ["IMAX"]
+            },
+            {
+                cine: "CineBloom Norte",
+                horarios: ["15:00", "18:15", "22:00"],
+                formato: ["2D"]
+            }
+        ]
+    },
+    {
+        id: 9,
+        titulo: "Loco Por Ella",
+        generos: ["Comedia"],
+        duracion: 97,
+        clasificacion: "B",
+        rating: 6.5,
+        director: "Rodrigo Nava",
+        actores: ["Cassandra Sanchéz Navarro", "Minnie West", "Daniel Haddad", "Diego Klein"],
+        sinopsis: "Álvaro (Diego Klein) cree fervientemente en que ¿si quieres, puedes?, en que todo está en la mente y que con ¿echarle ganas? las cosas salen bien. La vida le da una lección cuando en una sola noche se enamora perdidamente de Carla (Minnie West), una chica bipolar. Sumergido en su recuerdo y las ganas de volverla a ver, Álvaro descubre que está internada en un centro psiquiátrico y se ingresa con la esperanza de que Carla esté ahí por error. Adentro conoce a Saúl, Martha, Víctor y otros amigos que le ayudarán a entender que si en verdad quiere estar con ella tendrá que hacer algo más que echarle ganas.",
+        imagen: "imagenes/Cartelera/Pelicula9.jpg",
+        estreno: "2025-04-17",
+        trailer: "https://www.youtube.com/watch?v=BD_KhNipZmA", // Reemplazar con URL real
+        salas: [
+            {
+                cine: "CineBloom Central",
+                horarios: ["12:30", "14:00", "17:00"],
+                formato: ["2D"]
+            },
+            {
+                cine: "CineBloom Plaza",
+                horarios: ["13:00", "15:30", "18:30"],
+                formato: ["2D"]
+            },
+            {
+                cine: "CineBloom Norte",
+                horarios: ["15:00", "18:15", "22:00"],
+                formato: ["2D"]
+            }
+        ]
+    },
+    {
+        id: 10,
+        titulo: "Pecadores",
+        generos: ["Thriller"],
+        duracion: 137,
+        clasificacion: "B15",
+        rating: 9.0,
+        director: "Ryan Coogler",
+        actores: ["Hailee Steinfield", "Michael B. Jordan", "Jack O´Connell", "Wunmi Mosaku"],
+        sinopsis: "De Ryan Coogler, director de “Pantera Negra” y “Creed”, y protagonizada por Michael B. Jordan, llega una nueva visión del miedo: “Pecadores”. Intentando dejar atrás sus vidas problemáticas, dos hermanos gemelos (Jordan) regresan a su ciudad natal para comenzar de nuevo, solo para descubrir que un mal aún mayor los espera para darles la bienvenida. Si sigues bailando con el diablo, algún día te seguirá hasta tu casa.",
+        imagen: "imagenes/Cartelera/Pelicula10.jpg",
+        estreno: "2025-04-17",
+        trailer: "https://www.youtube.com/watch?v=wAxwRnRvGXc", // Reemplazar con URL real
+        salas: [
+            {
+                cine: "CineBloom Central",
+                horarios: ["15:30", "18:00", "20:00"],
+                formato: ["2D", "IMAX"]
+            },
+            {
+                cine: "CineBloom Plaza",
+                horarios: ["17:00", "18:30", "20:30"],
+                formato: ["2D", "3D", "IMAX"]
+            },
+            {
+                cine: "CineBloom Norte",
+                horarios: ["15:00", "18:15", "22:00"],
+                formato: ["2D", "IMAX"]
+            }
+        ]
+    },
+    {
+        id: 11,
+        titulo: "Apocalipsis Zombie: Paciente Z",
+        generos: ["Terror"],
+        duracion: 89,
+        clasificacion: "C",
+        rating: 6.4,
+        director: "David Moreau",
+        actores: ["Lucille Guillaume", "Laurie Pauvy", "Milton Riche"],
+        sinopsis: "Romain acaba de cumplir años y se encuentra ansioso por celebrarlo planeando una gran fiesta con su novia y amigos. Antes de unirse a la fiesta, decide hacer una rápida parada en la casa de su dealer para probar una nueva droga que promete añadir un toque desenfrenado a su noche. Sin embargo, en su camino de regreso, su divertida velada da un giro siniestro cuando se detiene a ayudar a una mujer herida en medio de la carretera la cual es presa del pánico y se golpea la cabeza hasta morir. A medida que pasa la noche, Romain cada vez se siente más extraño y entre el shock y la angustia, comienza a preguntar si sus síntomas son a causa de las drogas o de algo más oscuro que está a punto de desatarse.",
+        imagen: "imagenes/Cartelera/Pelicula11.jpg",
+        estreno: "2025-04-10",
+        trailer: "https://www.youtube.com/watch?v=H7Jt0snDFfw", // Reemplazar con URL real
+        salas: [
+            {
+                cine: "CineBloom Central",
+                horarios: ["16:30", "18:00", "20:00"],
+                formato: ["2D"]
+            },
+            {
+                cine: "CineBloom Plaza",
+                horarios: ["17:00", "18:30", "20:30"],
+                formato: ["2D", "3D"]
+            },
+            {
+                cine: "CineBloom Norte",
+                horarios: ["15:00", "18:15", "22:00"],
+                formato: ["2D", "3D"]
+            }
+        ]
     }
 ];
 
