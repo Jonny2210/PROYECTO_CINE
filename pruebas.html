@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="imagenes/CineBloom/logoCineBloom(favicon).ico" type="image/x-icon">
+    <title>CineBloom - Ejemplo de Página</title>
+    <!-- Material Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <!-- Materialize CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Archivo CSS personalizado -->
+    <link rel="stylesheet" href="index.css">
+    <!-- CSS específico de esta página (opcional) -->
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<nav>
+    <div class="nav-wrapper">
+        <a href="index.html" class="brand-logo">
+            <img src="imagenes/CineBloom/logoCineBloom_fondoTransparente.png" alt="CineBloom Logo">
+            CineBloom
+        </a>
+        <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+        <ul class="right hide-on-med-and-down">
+            <li><a href="#">Cartelera</a></li>
+            <li><a href="#">Promociones</a></li>
+            <li><a href="#">Alimentos</a></li>
+            <li><a href="#">Contacto</a></li>
+            <li class="user-actions">
+                <a class='dropdown-trigger' href='#' data-target='user-dropdown'>
+                    <img src="imagenes/Usuario/Usuario.jpg" alt="User" class="user-profile">
+                    Usuario
+                    <i class="fas fa-chevron-down"></i>
+                </a>
+                <ul id='user-dropdown' class='dropdown-content'>
+                    <li><a href="#"><i class="fas fa-user"></i> Mi perfil</a></li>
+                    <li><a href="#"><i class="fas fa-ticket-alt"></i> Mis entradas</a></li>
+                    <li><a href="#"><i class="fas fa-heart"></i> Favoritos</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
+<body>
+    <!-- Contenedor para cargar el header -->
+    <div id="header"></div>
+    
+    <!-- CONTENIDO ESPECÍFICO DE LA PÁGINA -->
+    <main>
+        <div class="container">
+            <h1 class="center-align">Título de la Página</h1>
+            <p>Este es un ejemplo de página que utiliza la inclusión de header y footer mediante JavaScript.</p>
+            
+            <div class="row">
+                <div class="col s12 m6">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Ejemplo de Tarjeta</span>
+                            <p>Aquí puedes colocar el contenido específico de tu página.</p>
+                        </div>
+                        <div class="card-action">
+                            <a href="#">Ver más</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="col s12 m6">
+                    <div class="card">
+                        <div class="card-content">
+                            <span class="card-title">Ventajas de esta Técnica</span>
+                            <ul>
+                                <li>No necesitas copiar y pegar el header y footer en cada página</li>
+                                <li>Si cambias el header o footer, se actualiza en todas las páginas</li>
+                                <li>Código más limpio y organizado</li>
+                                <li>Fácil mantenimiento</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <!-- Contenedor para cargar el footer -->
+    <div id="footer"></div>
+    
+    <!-- Scripts necesarios -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Script para cargar header y footer -->
+    <script src="Plantillas/includer.js"></script>
+    <!-- Script específico de esta página (opcional) -->
+    <script src="ejemplo.js"></script>
+</body>
+</html>

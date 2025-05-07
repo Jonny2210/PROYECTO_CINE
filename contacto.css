@@ -1,0 +1,461 @@
+/* Estilos específicos para la página de contacto */
+
+/* Banner de Contacto */
+.contact-banner {
+    height: 50vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url('/api/placeholder/1920/600');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 64px;
+    text-align: center;
+    position: relative;
+}
+
+.banner-content {
+    max-width: 800px;
+    padding: 0 20px;
+}
+
+.contact-banner h1 {
+    font-size: 3.5rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+}
+
+.contact-banner p {
+    font-size: 1.3rem;
+    color: var(--text-light);
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
+}
+
+/* Sección de Información de Contacto */
+.contact-info-section {
+    padding: 60px 0;
+    background-color: rgba(20, 20, 20, 0.9);
+}
+
+.contact-card {
+    background-color: rgba(30, 30, 30, 0.7);
+    border-radius: 10px;
+    padding: 30px;
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5);
+}
+
+.contact-icon {
+    width: 80px;
+    height: 80px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+}
+
+.contact-icon i {
+    font-size: 2rem;
+    color: var(--secondary-color);
+}
+
+.contact-card h3 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.contact-card p {
+    color: var(--text-muted);
+    margin-bottom: 10px;
+}
+
+.contact-link {
+    color: var(--primary-color);
+    display: inline-flex;
+    align-items: center;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+.contact-link i {
+    margin-left: 5px;
+    transition: transform 0.3s ease;
+}
+
+.contact-link:hover {
+    color: var(--accent-color);
+}
+
+.contact-link:hover i {
+    transform: translateX(5px);
+}
+
+/* Sección de Correos Electrónicos */
+.emails-section {
+    padding: 70px 0;
+    background-color: rgba(25, 25, 25, 0.9);
+}
+
+.emails-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.section-description {
+    text-align: center;
+    color: var(--text-muted);
+    max-width: 800px;
+    margin: 0 auto 40px;
+    font-size: 1.1rem;
+}
+
+.email-card {
+    background-color: rgba(30, 30, 30, 0.7);
+    border-radius: 10px;
+    padding: 25px;
+    text-align: center;
+    height: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.email-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+.email-icon {
+    width: 60px;
+    height: 60px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 15px;
+}
+
+.email-icon i {
+    font-size: 1.5rem;
+    color: var(--secondary-color);
+}
+
+.email-card h3 {
+    color: var(--text-light);
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.email-link {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: block;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.email-link:hover {
+    color: var(--accent-color);
+    transform: scale(1.05);
+}
+
+.email-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+}
+
+/* Sección de Formulario de Contacto */
+.contact-form-section {
+    padding: 70px 0;
+    background-color: rgba(30, 30, 30, 0.9);
+}
+
+.form-content {
+    padding: 30px;
+    background-color: rgba(20, 20, 20, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.form-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.form-content p {
+    color: var(--text-muted);
+    margin-bottom: 30px;
+}
+
+/* Estilización de los campos del formulario */
+.input-field input[type=text],
+.input-field input[type=email],
+.input-field input[type=tel],
+.input-field textarea {
+    border-bottom: 1px solid rgba(214, 179, 106, 0.3) !important;
+    color: var(--text-light) !important;
+}
+
+.input-field input[type=text]:focus,
+.input-field input[type=email]:focus,
+.input-field input[type=tel]:focus,
+.input-field textarea:focus {
+    border-bottom: 1px solid var(--primary-color) !important;
+    box-shadow: 0 1px 0 0 var(--primary-color) !important;
+}
+
+.input-field input[type=text] + label,
+.input-field input[type=email] + label,
+.input-field input[type=tel] + label,
+.input-field textarea + label {
+    color: var(--text-muted) !important;
+}
+
+.input-field input[type=text]:focus + label,
+.input-field input[type=email]:focus + label,
+.input-field input[type=tel]:focus + label,
+.input-field textarea:focus + label {
+    color: var(--primary-color) !important;
+}
+
+/* Selects personalizados */
+.select-wrapper input.select-dropdown {
+    color: var(--text-light) !important;
+    border-bottom: 1px solid rgba(214, 179, 106, 0.3) !important;
+}
+
+.select-wrapper .caret {
+    fill: var(--primary-color) !important;
+}
+
+.dropdown-content li > a, .dropdown-content li > span {
+    color: var(--primary-color) !important;
+}
+
+.form-action {
+    margin-top: 30px;
+}
+
+.form-action button {
+    background-color: var(--primary-color);
+    color: var(--text-dark);
+    font-weight: 600;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30px;
+    transition: all 0.3s ease;
+}
+
+.form-action button i {
+    margin-left: 10px;
+}
+
+.form-action button:hover {
+    background-color: var(--accent-color);
+    transform: translateY(-3px);
+    color: var(--text-light);
+    box-shadow: 0 5px 15px rgba(229, 9, 20, 0.4);
+}
+
+/* Mapa */
+.map-container {
+    padding: 30px;
+    background-color: rgba(20, 20, 20, 0.7);
+    border-radius: 10px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    height: 100%;
+}
+
+.map-container h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+}
+
+.map-placeholder {
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 20px;
+    cursor: pointer;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.map-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+}
+
+.map-overlay i {
+    font-size: 3rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.map-overlay p {
+    color: var(--text-light);
+    font-weight: 500;
+}
+
+.map-placeholder:hover .map-overlay {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.location-info {
+    margin-top: 20px;
+}
+
+.location-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+    color: var(--text-muted);
+}
+
+.location-item i {
+    color: var(--primary-color);
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+/* Sección de Preguntas Frecuentes */
+.faq-section {
+    padding: 70px 0;
+    background-color: rgba(25, 25, 25, 0.9);
+}
+
+.faq-section h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.collapsible {
+    border: none;
+    box-shadow: none;
+    margin-top: 40px;
+}
+
+.collapsible-header {
+    background-color: rgba(30, 30, 30, 0.7);
+    color: var(--text-light);
+    font-weight: 600;
+    border: none;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    transition: all 0.3s ease;
+}
+
+.collapsible-header i {
+    margin-right: 15px;
+    color: var(--primary-color);
+    transition: transform 0.3s ease;
+}
+
+.active .collapsible-header i {
+    transform: rotate(45deg);
+}
+
+.collapsible-header:hover {
+    background-color: rgba(40, 40, 40, 0.8);
+}
+
+.collapsible-body {
+    padding: 20px;
+    background-color: rgba(35, 35, 35, 0.6);
+    border: none;
+    border-radius: 0 0 5px 5px;
+    margin-bottom: 10px;
+    color: var(--text-muted);
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+    .contact-banner h1 {
+        font-size: 2.5rem;
+    }
+    
+    .contact-banner p {
+        font-size: 1.1rem;
+    }
+    
+    .form-content, .map-container {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 600px) {
+    .contact-banner {
+        height: 40vh;
+    }
+    
+    .contact-banner h1 {
+        font-size: 2rem;
+    }
+    
+    .contact-banner p {
+        font-size: 1rem;
+    }
+    
+    .emails-section h2, 
+    .faq-section h2 {
+        font-size: 1.8rem;
+    }
+    
+    .form-content h2 {
+        font-size: 1.5rem;
+    }
+    
+    .contact-card, 
+    .email-card {
+        padding: 20px 15px;
+    }
+    
+    .email-icon {
+        width: 50px;
+        height: 50px;
+    }
+    
+    .collapsible-header {
+        padding: 10px;
+    }
+}
