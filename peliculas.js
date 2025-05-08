@@ -361,8 +361,8 @@ function generarTarjetaPelicula(pelicula) {
             <img src="${pelicula.imagen}" alt="${pelicula.titulo}">
             <div class="movie-overlay">
                 <div class="movie-actions">
-                    <button onclick="window.location.href='comprar-boletos.html?id=${pelicula.id}'"><i class="fas fa-ticket-alt"></i> Comprar</button>
-                    <button onclick="window.location.href='pelicula.html?id=${pelicula.id}'"><i class="fas fa-play"></i> Trailer</button>
+                    
+                    <button onclick="window.location.href='pelicula.html?id=${pelicula.id}'"><i class="fas fa-play"></i> Ver Detalles</button>
                 </div>
             </div>
             <div class="movie-rating">
@@ -393,7 +393,7 @@ function cargarPeliculasEnCartelera() {
     }
 }
 
-// Función para cargar datos de una película específica
+// Función para cargar los datos de una película específica
 function cargarDetallePelicula() {
     const urlParams = new URLSearchParams(window.location.search);
     const peliculaId = parseInt(urlParams.get('id'));
@@ -417,6 +417,20 @@ function cargarDetallePelicula() {
             // Configurar el fondo
             document.querySelector('.movie-background').style.backgroundImage = `url(${pelicula.imagen})`;
         }
+    }
+
+    // Configurar el botón de ver trailer
+    document.getElementById('ver-trailer-button').addEventListener('click', function(e) {
+        e.preventDefault(); // Evita el salto al inicio
+        verTrailer(peliculaId); // Llamamos a la función verTrailer pasando el ID de la película
+    });
+}
+
+// Función para redirigir al trailer de YouTube
+function verTrailer(id) {
+    const pelicula = obtenerPeliculaPorId(id);
+    if (pelicula && pelicula.trailer) {
+        window.open(pelicula.trailer, '_blank'); // Abre el trailer en una nueva pestaña
     }
 }
 
