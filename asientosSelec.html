@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Selección de Asientos</title>
+  <link rel="shortcut icon" href="imagenes/CineBloom/logoCineBloom(favicon).ico" type="image/x-icon"/>
+  <!-- Material Icons + Fonts -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet"/>
+  <!-- Materialize CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"/>
+  <!-- Estilo personalizado -->
+  <link rel="stylesheet" href="asientosSelec.css"/>
+</head>
+<body>
+
+  <!-- Navegación -->
+  <nav>
+    <div class="nav-wrapper">
+      <a href="index.html" class="brand-logo">
+        <img src="imagenes/CineBloom/logoCineBloom_fondoTransparente.png" alt="CineBloom Logo">
+        CineBloom
+      </a>
+      <a href="#" data-target="mobile-menu" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+      <ul class="right hide-on-med-and-down">
+        <li><a href="index.html">Cartelera</a></li>
+        <li><a href="cine.html">Alimentos</a></li>
+        <li><a href="#">Contacto</a></li>
+        <li><a class="btn waves-effect waves-light"><i class="fas fa-shopping-cart"></i> Carrito</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Contenido -->
+  <div class="container">
+    <div class="section">
+      <h4 class="center-align">Selecciona tus asientos</h4>
+
+      <div class="legend center-align">
+        <span><span class="seat selected"></span> Seleccionado</span>
+        <span><span class="seat available"></span> Disponible</span>
+        <span><span class="seat occupied"></span> Ocupado</span>
+      </div>
+
+      <div class="screen center-align">Pantalla</div>
+
+      <div id="seat-map" class="seat-map center-align"></div>
+
+      <p id="selected-seats" class="center-align">Asientos seleccionados: ninguno</p>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-column">
+        <h4>CineBloom</h4>
+        <p>Tu cine favorito con la mejor experiencia cinematográfica. Disfruta de las películas más recientes con la mejor calidad de imagen y sonido.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+      </div>
+      <div class="footer-column">
+        <h4>Enlaces rápidos</h4>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Cartelera</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Alimentos</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Promociones</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Nuestros cines</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="#"><i class="fas fa-map-marker-alt"></i> Av. Principal #123, Ciudad</a></li>
+          <li><a href="#"><i class="fas fa-phone"></i> +123 456 7890</a></li>
+          <li><a href="#"><i class="fas fa-envelope"></i> info@cinebloom.com</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Horarios</h4>
+        <ul>
+          <li><i class="fas fa-clock"></i> Lunes a Jueves: 13:00 - 23:00</li>
+          <li><i class="fas fa-clock"></i> Viernes a Domingo: 11:00 - 01:00</li>
+          <li><i class="fas fa-clock"></i> Feriados: 11:00 - 01:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="copyright">
+      <p>&copy; 2025 CineBloom. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script src="asientosSelec.js"></script>
+</body>
+</html>
