@@ -99,8 +99,8 @@ nav ul a:hover {
 
 /* Banner Principal */
 .banner {
-    height: 85vh;
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('/api/placeholder/1920/1080');
+    height: 93vh;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), url('/imagenes/Carrete/fondocarrete.jpg');
     background-size: cover;
     background-position: center;
     position: relative;

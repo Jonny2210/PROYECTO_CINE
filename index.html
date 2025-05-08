@@ -43,7 +43,7 @@
                     <li><a href="#"><i class="fas fa-ticket-alt"></i> Mis entradas</a></li>
                     <li><a href="#"><i class="fas fa-heart"></i> Favoritos</a></li>
                     <li class="divider"></li>
-                    <li><a href="#"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
+                    <li><a href="#" id="logout-btn"><i class="fas fa-sign-out-alt"></i> Cerrar sesión</a></li>
                 </ul>
             </li>
         </ul>
@@ -267,6 +267,30 @@ onAuthStateChanged(auth, (user) => {
     window.location.href = "/login.html";
   }
 });
+
+
+const banner = document.querySelector('.banner');
+  const images = [
+    '/Imagenes/Carrete/fondocarrete.jpg',
+    '/Imagenes/Carrete/fondo2carrete.jpg',
+    '/Imagenes/Carrete/fondo3carrete.jpg',
+    '/Imagenes/Carrete/fondo4carrete.jpg',
+    '/Imagenes/Carrete/fondo5carrete.jpg',
+    '/Imagenes/Carrete/fondo6carrete.jpg',
+    
+  ];
+  let index = 0;
+
+  function changeBannerBackground() {
+    banner.style.backgroundImage = `
+      linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.8)), 
+      url('${images[index]}')`;
+    index = (index + 1) % images.length;
+  }
+
+  // Cambiar cada 5 segundos
+  changeBannerBackground();
+  setInterval(changeBannerBackground, 4000);
   </script>
 
 </body>
