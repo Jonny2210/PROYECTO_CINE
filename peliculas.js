@@ -340,6 +340,285 @@ const peliculas = [
                 formato: ["2D", "3D"]
             }
         ]
+    },
+    {
+        id: 12,
+        titulo: "Karate Kid: Leyendas",
+        generos: ["Acción"],
+        duracion: 94,
+        clasificacion: "A",
+        rating: 8.0,
+        director: "Jonathan Entwistle",
+        actores: ["Ralph Macchio", "Jackie Chan", "Ben Wang", "Joshua Jackson"],
+        sinopsis: "En Karate Kid: Leyendas, tras una tragedia familiar, el prodigio del kung fu, Li Fong (Ben Wang), deja su hogar en Pekín y es obligado a mudarse a Nueva York con su madre. Li lucha por dejar atrás su pasado mientras intenta encajar con sus nuevos compañeros de clase y, aunque no quiere pelear, los problemas parecen encontrarlo en todas partes. Cuando un nuevo amigo necesita su ayuda, Li entra a una competencia de karate pero sus habilidades no son suficientes. El profesor de kung fu de Li, el Sr. Han (Jackie Chan), pide ayuda al Karate Kid original, Daniel LaRusso (Ralph Macchio), y Li aprende una nueva forma de pelear fusionando sus dos estilos en uno solo para competir en el más grande enfrentamiento de artes marciales.",
+        imagen: "imagenes/Cartelera/Pelicula12.jpg",
+        estreno: "2025-05-29",
+        trailer: "https://www.youtube.com/watch?v=LhRXf-yEQqA", // Reemplazar con URL real
+        salas: [
+            {
+                cine: "CineBloom Central",
+                horarios: ["16:30", "18:00", "21:00"],
+                formato: ["2D"]
+            },
+            {
+                cine: "CineBloom Plaza",
+                horarios: ["17:00", "18:30", "21:30"],
+                formato: ["IMAX"]
+            },
+            {
+                cine: "CineBloom Norte",
+                horarios: ["15:00", "18:15", "22:00"],
+                formato: ["2D"]
+            }
+        ]
+    },
+    {
+        id: 13,
+        titulo: "Sneaks: Un Par Con Suerte",
+        generos: ["Animación"],
+        duracion: 92,
+        clasificacion: "A",
+        rating: 3.7,
+        director: "Christopher Jenkins",
+        actores: ["Anthony Mackie", "Laurence Fishburne", "Martin Lawrence"],
+        sinopsis: "Ty es un tenis de diseñador que no conoce la vida fuera de la comodidad de su caja de zapatos forrada de terciopelo. Después de que un sospechoso coleccionista le roba a su hermana, Ty debe aventurarse en Nueva York para encontrarla y rescatarla.",
+        imagen: "imagenes/Cartelera/Pelicula13.jpg",
+        estreno: "2025-04-30",
+        trailer: "https://www.youtube.com/watch?v=Fps8BK2-oFo", // Reemplazar con URL real
+        salas: [
+            {
+                cine: "CineBloom Central",
+                horarios: ["16:30", "18:00", "21:00"],
+                formato: ["2D"]
+            },
+            {
+                cine: "CineBloom Plaza",
+                horarios: ["17:00", "18:30", "21:30"],
+                formato: ["IMAX"]
+            },
+            {
+                cine: "CineBloom Norte",
+                horarios: ["15:00", "18:15", "22:00"],
+                formato: ["2D"]
+            }
+        ]
+    },
+    {
+        id: 14,
+        titulo: "Better Man: La Historia De Robbie Williams",
+        generos: ["Biopic"],
+        duracion: 135,
+        clasificacion: "C",
+        rating: 7.6,
+        director: "Michael Gracey",
+        actores: ["Robbie Williams", "Jonno Davies", "Steve Pemberton", "Alison Steadman"],
+        sinopsis: "Interpretado por Robbie Williams, esta película nos invita a recorrer los altibajos de su historia. Conocemos la vida de esta superestrella pop desde su niñez, su despegue hacia la fama, su estrepitoso descenso y su remarcable vuelta al mundo del espectáculo.",
+        imagen: "imagenes/Cartelera/Pelicula14.jpg",
+        estreno: "2025-02-20",
+        trailer: "https://www.youtube.com/watch?v=KVeH5T4wxkE", // Reemplazar con URL real
+        salas: [
+            {
+                cine: "CineBloom Central",
+                horarios: ["16:30", "18:00", "21:00"],
+                formato: ["2D"]
+            },
+            {
+                cine: "CineBloom Plaza",
+                horarios: ["17:00", "18:30", "21:30"],
+                formato: ["IMAX"]
+            },
+            {
+                cine: "CineBloom Norte",
+                horarios: ["15:00", "18:15", "22:00"],
+                formato: ["2D"]
+            }
+        ]
+    },
+    {
+        id: 15,
+        titulo: "Flow",
+        generos: ["Animación"],
+        duracion: 85,
+        clasificacion: "A",
+        rating: 7.9,
+        director: "Gints Zilbalodis",
+        actores: ["Edward Norton", "Ron Dyens", "Gregory Zalcman", "Matīss Kaža"],
+        sinopsis: "Un gato se encuentra en un mundo cubierto de agua, sin aparente rastro humano. En la búsqueda de refugio, se une a un barco con animales de otras especies. Llevarse bien con ellos resulta ser un reto aún mayor que superar su miedo al agua. A lo largo de esta aventura, tendrán que demostrar su valentía y superar sus diferencias para adaptarse a la nueva situación.",
+        imagen: "imagenes/Cartelera/Pelicula15.jpg",
+        estreno: "2025-01-01",
+        trailer: "https://www.youtube.com/watch?v=SZ2aLoYfRCI", // Reemplazar con URL real
+        salas: [
+            {
+                cine: "CineBloom Central",
+                horarios: ["16:30", "18:00", "21:00"],
+                formato: ["2D"]
+            },
+            {
+                cine: "CineBloom Plaza",
+                horarios: ["17:00", "18:30", "21:30"],
+                formato: ["IMAX"]
+            },
+            {
+                cine: "CineBloom Norte",
+                horarios: ["15:00", "18:15", "22:00"],
+                formato: ["2D"]
+            }
+        ]
+    },
+    {
+        id: 16,
+        titulo: "Until Dawn: Noche De Terror",
+        generos: ["Terror"],
+        duracion: 103,
+        clasificacion: "C",
+        rating: 6.0,
+        director: "David F. Sandberg",
+        actores: ["Michael Cimino", "Ella Rubin", "Odessa A’zion", "Ji-young Yoo"],
+        sinopsis: "Un año después de que su hermana Melanie desapareciera misteriosamente, Clover y sus amigas se dirigen al remoto valle donde desapareció en busca de respuestas. Explorando un centro de visitantes abandonado, se encuentran acechadas por un asesino enmascarado y asesinadas horriblemente una a una... sólo para despertar y encontrarse de nuevo al principio de la misma noche. Atrapados en el valle, se ven obligados a revivir la pesadilla una y otra vez, sólo que cada vez la amenaza asesina es diferente, cada vez más aterradora que la anterior. Con la esperanza menguando, el grupo pronto se da cuenta de que les queda un número limitado de muertes, y la única forma de escapar es sobrevivir hasta el amanecer.",
+        imagen: "imagenes/Cartelera/Pelicula16.jpg",
+        estreno: "2025-04-24",
+        trailer: "https://www.youtube.com/watch?v=2b3vBaINZ7w", // Reemplazar con URL real
+        salas: [
+            {
+                cine: "CineBloom Central",
+                horarios: ["16:30", "18:00", "21:00"],
+                formato: ["2D"]
+            },
+            {
+                cine: "CineBloom Plaza",
+                horarios: ["17:00", "18:30", "21:30"],
+                formato: ["IMAX"]
+            },
+            {
+                cine: "CineBloom Norte",
+                horarios: ["15:00", "18:15", "22:00"],
+                formato: ["2D"]
+            }
+        ]
+    },
+    {
+        id: 17,
+        titulo: "El Rey De Reyes",
+        generos: ["Animación"],
+        duracion: 100,
+        clasificacion: "A",
+        rating: 7.4,
+        director: "Seong-ho Jang",
+        actores: ["Pierce Brosnan", "Uma Thurman", "Mark Hamill", "Kenneth Branagh"],
+        sinopsis: "Un padre le cuenta a su hijo la historia más grandiosa jamás contada, y lo que comienza como un cuento para dormir se convierte en una experiencia transformadora. Con una imaginación vívida, el niño camina junto a Jesús, presenciando sus milagros, enfrentando sus pruebas y comprendiendo su sacrificio supremo. El Rey de Reyes nos invita a redescubrir el poder perdurable de la esperanza, el amor y la redención a través de la mirada de un niño.",
+        imagen: "imagenes/Cartelera/Pelicula17.jpg",
+        estreno: "2025-04-10",
+        trailer: "https://www.youtube.com/watch?v=WDI2sD5snUU", // Reemplazar con URL real
+        salas: [
+            {
+                cine: "CineBloom Central",
+                horarios: ["16:30", "18:00", "21:00"],
+                formato: ["2D"]
+            },
+            {
+                cine: "CineBloom Plaza",
+                horarios: ["17:00", "18:30", "21:30"],
+                formato: ["IMAX"]
+            },
+            {
+                cine: "CineBloom Norte",
+                horarios: ["15:00", "18:15", "22:00"],
+                formato: ["2D"]
+            }
+        ]
+    },
+    {
+        id: 18,
+        titulo: "Blanca Nieves",
+        generos: ["Familiar"],
+        duracion: 109,
+        clasificacion: "A",
+        rating: 1.6,
+        director: "Marc Webb",
+        actores: ["Rachel Zegler", "Andrew Burnap", "Gal Gadot"],
+        sinopsis: "BLANCA NIEVES de Disney, una nueva versión de acción real del clásico de 1937. Esta mágica aventura regresa la inolvidable historia con Rachel Zegler en el rol principal y Gal Gadot como su madrastra, la Reina Malvada. El nuevo tráiler muestra la magnitud y belleza del impresionante diseño de producción, los entrañables personajes: Tímido, Doc, Tontín, Gruñón, Feliz, Dormilón y Estornudo, y un primer vistazo a la poderosa balada “Waiting on a Wish”",
+        imagen: "imagenes/Cartelera/Pelicula18.jpg",
+        estreno: "2025-03-20",
+        trailer: "https://www.youtube.com/watch?v=iV46TJKL8cU", // Reemplazar con URL real
+        salas: [
+            {
+                cine: "CineBloom Central",
+                horarios: ["16:30", "18:00", "21:00"],
+                formato: ["2D"]
+            },
+            {
+                cine: "CineBloom Plaza",
+                horarios: ["17:00", "18:30", "21:30"],
+                formato: ["IMAX"]
+            },
+            {
+                cine: "CineBloom Norte",
+                horarios: ["15:00", "18:15", "22:00"],
+                formato: ["2D"]
+            }
+        ]
+    },
+    {
+        id: 19,
+        titulo: "Invencible: Un Niño Fuera De Serie",
+        generos: ["Drama"],
+        duracion: 109,
+        clasificacion: "A",
+        rating: 5.7,
+        director: "Jon Gunn",
+        actores: ["Zachary Levi", "Jacob Laval", "Amy Acker", "Todd Terry"],
+        sinopsis: "Austin (Jacob Laval ) un niño con Osteogenesis imperfecta y con autismo, que con su visión alegre y divertida de la vida, transfora y une a todos los que estan a su alrededor; en especial a su papá Scott (Zachary Levi), quien ve a Austin no como un símbolo de algo roto, si no como el triunfo de un espíritu inquebrantable.",
+        imagen: "imagenes/Cartelera/Pelicula19.jpg",
+        estreno: "2025-04-10",
+        trailer: "https://www.youtube.com/watch?v=pGbLX3__m60", // Reemplazar con URL real
+        salas: [
+            {
+                cine: "CineBloom Central",
+                horarios: ["16:30", "18:00", "21:00"],
+                formato: ["2D"]
+            },
+            {
+                cine: "CineBloom Plaza",
+                horarios: ["17:00", "18:30", "21:30"],
+                formato: ["IMAX"]
+            },
+            {
+                cine: "CineBloom Norte",
+                horarios: ["15:00", "18:15", "22:00"],
+                formato: ["2D"]
+            }
+        ]
+    },
+    {
+        id: 20,
+        titulo: "La Balada De La Isla",
+        generos: ["Comedia", "Romance"],
+        duracion: 99,
+        clasificacion: "B",
+        rating: 7.4,
+        director: "James Griffiths",
+        actores: ["Carey Mulligan", "Tom Basden", "Tim Key"],
+        sinopsis: "Charles, un excéntrico ganador de la lotería, sueña con volver a reunir a sus músicos favoritos. Su fantasía se hace realidad cuando los miembros de la banda y antiguos amantes aceptan su invitación para tocar en un concierto privado en su casa de Wallis Island. Las viejas tensiones resurgen mientras Charles intenta desesperadamente salvar el concierto de sus sueños.",
+        imagen: "imagenes/Cartelera/Pelicula20.jpg",
+        estreno: "2025-05-08",
+        trailer: "https://www.youtube.com/watch?v=e39J8g7dP8g", // Reemplazar con URL real
+        salas: [
+            {
+                cine: "CineBloom Central",
+                horarios: ["16:30", "18:00", "21:00"],
+                formato: ["2D"]
+            },
+            {
+                cine: "CineBloom Plaza",
+                horarios: ["17:00", "18:30", "21:30"],
+                formato: ["IMAX"]
+            },
+            {
+                cine: "CineBloom Norte",
+                horarios: ["15:00", "18:15", "22:00"],
+                formato: ["2D"]
+            }
+        ]
     }
 ];
 
