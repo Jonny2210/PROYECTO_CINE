@@ -150,7 +150,7 @@ nav ul a:hover {
 /* Búsqueda */
 .search-section {
     background: linear-gradient(to right, rgba(20, 20, 20, 0.9), rgba(40, 40, 40, 0.9));
-    padding: 30px 0;
+    padding: 50px 0;
     box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.2);
 }
 
@@ -645,3 +645,4 @@ footer {
         scroll-behavior: smooth;
       }
 }
+

@@ -632,6 +632,37 @@ function obtenerPeliculasEnCartelera() {
     return peliculas;
 }
 
+//Buscar Peliculas por titulo
+function buscarPeliculasPorTitulo(textoBusqueda) {
+    const texto = textoBusqueda.toLowerCase();
+    return peliculas.filter(pelicula => 
+        pelicula.titulo.toLowerCase().includes(texto)
+    );
+}
+
+function cargarPeliculasBuscadas(textoBusqueda) {
+    const contenedor = document.querySelector('.movie-grid');
+    if (!contenedor) return;
+
+    const resultados = buscarPeliculasPorTitulo(textoBusqueda);
+
+    contenedor.innerHTML = '';
+
+    if (resultados.length === 0) {
+        contenedor.innerHTML = '<p>No se encontraron películas.</p>';
+        return;
+    }
+
+    resultados.forEach(pelicula => {
+        contenedor.innerHTML += generarTarjetaPelicula(pelicula);
+    });
+}
+
+document.getElementById('btnBuscar').addEventListener('click', () => {
+    const texto = document.getElementById('buscador').value;
+    cargarPeliculasBuscadas(texto);
+});
+
 // Función para generar HTML de una tarjeta de película
 function generarTarjetaPelicula(pelicula) {
     return `
@@ -670,6 +701,7 @@ function cargarPeliculasEnCartelera() {
             contenedor.innerHTML += generarTarjetaPelicula(pelicula);
         });
     }
+    
 }
 
 // Función para cargar los datos de una película específica
@@ -881,3 +913,38 @@ window.cargarHorarios = cargarHorarios;
 window.mostrarButacas = mostrarButacas;
 window.actualizarButacasSeleccionadas = actualizarButacasSeleccionadas;
 window.confirmarCompra = confirmarCompra;
+
+document.addEventListener('DOMContentLoaded', function() {
+    var elems = document.querySelectorAll('select');
+    M.FormSelect.init(elems);
+
+    const btnBuscar = document.getElementById('btnBuscar');
+    if (btnBuscar) {
+        btnBuscar.addEventListener('click', () => {
+            const texto = document.getElementById('buscador').value;
+            cargarPeliculasBuscadas(texto);
+        });
+    }
+
+    const inputBuscador = document.getElementById('buscador');
+    inputBuscador.addEventListener('keydown', (event) => {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            const texto = inputBuscador.value;
+            cargarPeliculasBuscadas(texto);
+        }
+    });
+});
+
+btnBuscar.addEventListener('click', () => {
+    const texto = document.getElementById('buscador').value;
+    console.log('Buscar:', texto); // Verifica el texto capturado
+    const resultados = buscarPeliculasPorTitulo(texto);
+    console.log('Resultados:', resultados); // Verifica las películas encontradas
+    cargarPeliculasBuscadas(texto);
+});
+
+document.getElementById('btnBuscar').addEventListener('click', (e) => {
+    e.preventDefault();
+    // resto igual
+});
