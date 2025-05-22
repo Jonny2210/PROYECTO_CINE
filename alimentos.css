@@ -103,6 +103,13 @@ nav ul a.active {
     margin-right: 5px;
 }
 
+#toggleCart i {
+  margin-right: 8px;
+  font-size: 1rem;
+  position: relative;
+  top: -10px; /* Sube el ícono */
+}
+
 /* Contenedor principal */
 .container {
     margin-top: 120px;
@@ -138,6 +145,8 @@ nav ul a.active {
 .section-title .view-all i {
     margin-left: 5px;
 }
+
+
 
 /* Tarjetas de alimentos */
 .food-grid {
