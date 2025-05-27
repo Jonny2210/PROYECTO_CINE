@@ -1,0 +1,508 @@
+:root {
+    --primary-color: #d6b36a;
+    --secondary-color: #141414;
+    --accent-color: #f40612;
+    --text-light: #ffffff;
+    --text-dark: #333333;
+    --text-muted: #888888;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--secondary-color);
+    color: var(--text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+    background-image: 
+        linear-gradient(135deg, rgba(214, 179, 106, 0.1) 0%, rgba(20, 20, 20, 0.9) 50%),
+        radial-gradient(circle at top right, rgba(244, 6, 18, 0.1) 0%, transparent 50%);
+}
+
+/* Contenedor principal */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 40px;
+    background-color: rgba(30, 30, 30, 0.8);
+    border-radius: 15px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(214, 179, 106, 0.2);
+}
+
+/* Contenedor específico para página de gracias */
+.container.center-align {
+    text-align: center;
+    max-width: 600px;
+}
+
+/* Título principal */
+.center-align {
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 40px;
+    position: relative;
+    padding-bottom: 15px;
+}
+
+.center-align::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+/* Títulos h2 para página de gracias */
+.container h2 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.5);
+    position: relative;
+    display: inline-block;
+}
+
+.container h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    border-radius: 2px;
+}
+
+/* Párrafos principales */
+.container > p {
+    font-size: 1.2rem;
+    color: var(--text-light);
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Secciones */
+.section {
+    background-color: rgba(40, 40, 40, 0.6);
+    padding: 30px;
+    border-radius: 12px;
+    margin-bottom: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+.section:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    border-color: rgba(214, 179, 106, 0.3);
+}
+
+/* Párrafos de información */
+.section p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.section p:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.section p strong {
+    color: var(--text-light);
+    font-weight: 600;
+    flex-shrink: 0;
+}
+
+.section p span {
+    color: var(--primary-color);
+    font-weight: 600;
+    text-align: right;
+}
+
+/* Destacar el total */
+.section p:last-child {
+    font-size: 1.3rem;
+    padding: 15px 0;
+    margin-top: 10px;
+    border-top: 2px solid var(--primary-color);
+    background-color: rgba(214, 179, 106, 0.1);
+    border-radius: 8px;
+    padding: 15px;
+}
+
+.section p:last-child span {
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+/* Títulos de sección */
+.section h5 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.section h5::before {
+    content: '';
+    width: 4px;
+    height: 20px;
+    background-color: var(--primary-color);
+    margin-right: 12px;
+    border-radius: 2px;
+}
+
+/* Formulario */
+form {
+    margin-top: 20px;
+}
+
+/* Radio buttons personalizados */
+form p {
+    margin-bottom: 20px;
+    border-bottom: none !important;
+    padding: 15px !important;
+    background-color: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+form p:hover {
+    background-color: rgba(214, 179, 106, 0.1);
+    transform: translateX(5px);
+}
+
+form p label {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.1rem;
+    width: 100%;
+}
+
+/* Estilo para radio buttons */
+input[type="radio"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--text-muted);
+    border-radius: 50%;
+    margin-right: 15px;
+    position: relative;
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+input[type="radio"]:checked {
+    border-color: var(--primary-color);
+    background-color: var(--primary-color);
+}
+
+input[type="radio"]:checked::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 8px;
+    height: 8px;
+    background-color: var(--text-dark);
+    border-radius: 50%;
+}
+
+input[type="radio"]:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(214, 179, 106, 0.3);
+}
+
+/* Botón de confirmar compra y enlaces */
+.btn, a.btn {
+    background: linear-gradient(45deg, var(--primary-color), #f4d03f);
+    color: var(--text-dark);
+    font-weight: 700;
+    font-size: 1.2rem;
+    padding: 15px 40px;
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+    overflow: hidden;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.btn::before, a.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: left 0.5s ease;
+}
+
+.btn:hover::before, a.btn:hover::before {
+    left: 100%;
+}
+
+.btn:hover, a.btn:hover {
+    background: linear-gradient(45deg, var(--accent-color), #ff6b6b);
+    color: var(--text-light);
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(244, 6, 18, 0.4);
+}
+
+.btn:active, a.btn:active {
+    transform: translateY(-1px);
+}
+
+/* Botón para página de gracias - estilo específico */
+.container.center-align .btn {
+    width: auto;
+    min-width: 200px;
+    margin-top: 30px;
+    font-size: 1.1rem;
+    padding: 12px 30px;
+}
+
+/* Iconos para métodos de pago */
+form p label span::before {
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+    margin-right: 10px;
+    font-size: 1.2rem;
+    color: var(--primary-color);
+}
+
+form p:nth-child(1) label span::before {
+    content: "\f09d"; /* Icono de tarjeta de crédito */
+}
+
+form p:nth-child(2) label span::before {
+    content: "\f283"; /* Icono de tarjeta de débito */
+}
+
+form p:nth-child(3) label span::before {
+    content: "\f1ed"; /* Icono de PayPal */
+}
+
+/* Footer */
+footer {
+    background-color: rgba(10, 10, 10, 0.95);
+    padding: 70px 0 20px;
+    margin-top: 100px;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column h4 {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 20px;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.footer-column h4::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary-color);
+}
+
+.footer-column ul {
+    list-style: none;
+}
+
+.footer-column ul li {
+    margin-bottom: 10px;
+}
+
+.footer-column ul li a {
+    color: var(--text-muted);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.footer-column ul li a i {
+    margin-right: 10px;
+    font-size: 0.8rem;
+}
+
+.footer-column ul li a:hover {
+    color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.footer-column p {
+    color: var(--text-muted);
+    margin-bottom: 20px;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--text-light);
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background-color: var(--primary-color);
+    color: var(--text-dark);
+    transform: translateY(-5px);
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 40px;
+    margin-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-muted);
+}
+
+.copyright a {
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        margin: 20px;
+        padding: 25px;
+        border-radius: 10px;
+    }
+
+    .center-align {
+        font-size: 1.8rem;
+        margin-bottom: 30px;
+    }
+
+    .section {
+        padding: 20px;
+    }
+
+    .section p {
+        font-size: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+        text-align: left;
+    }
+
+    .section p span {
+        margin-top: 5px;
+        text-align: left;
+    }
+
+    .btn {
+        font-size: 1rem;
+        padding: 12px 30px;
+    }
+
+    form p label {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        margin: 10px;
+        padding: 20px;
+    }
+
+    .center-align {
+        font-size: 1.5rem;
+    }
+
+    .section h5 {
+        font-size: 1.2rem;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.container {
+    animation: fadeIn 0.6s ease-out;
+}
+
+.section {
+    animation: fadeIn 0.8s ease-out;
+}
+
+.section:nth-child(2) {
+    animation-delay: 0.1s;
+}
+
+.section:nth-child(3) {
+    animation-delay: 0.2s;
+}
