@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gracias por tu compra</title>
+  <link rel="stylesheet" href="asientosSelec.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container center-align" style="margin-top: 80px;">
+    <h2 style="color: var(--primary-color); margin-bottom: 20px;">¡Gracias por tu compra!</h2>
+    <p style="font-size: 1.2rem;">Tu compra ha sido procesada con éxito.</p>
+
+    <div class="section" style="margin-top: 40px;">
+      <h5>Detalles de tu compra</h5>
+      <p><strong>Asientos:</strong> <span id="asientos">Cargando...</span></p>
+      <p><strong>Número de boletos:</strong> <span id="cantidad">0</span></p>
+      <p><strong>Precio por boleto:</strong> $<span id="precio">75</span> MXN</p>
+      <p><strong>Total pagado:</strong> $<span id="total">0</span> MXN</p>
+    </div>
+
+    <a href="index.html" class="btn waves-effect waves-light" style="margin-top: 30px;">Volver al inicio</a>
+  </div>
+
+  <script>
+    const asientos = JSON.parse(localStorage.getItem('asientosSeleccionados')) || [];
+    const precio = 75;
+    const cantidad = asientos.length;
+    const total = cantidad * precio;
+
+    document.getElementById('asientos').textContent = asientos.join(', ') || 'No disponible';
+    document.getElementById('cantidad').textContent = cantidad;
+    document.getElementById('precio').textContent = precio;
+    document.getElementById('total').textContent = total;
+
+    // Limpiar localStorage después de mostrar
+    localStorage.removeItem('asientosSeleccionados');
+  </script>
+</body>
+</html>

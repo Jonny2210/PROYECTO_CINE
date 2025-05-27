@@ -56,3 +56,8 @@ function updateSelectedSeats() {
     selectedSeatsDisplay.textContent = `Asientos seleccionados: ${selectedSeats.join(', ')}`;
   }
 }
+
+function finalizarCompra() {
+  localStorage.setItem('asientosSeleccionados', JSON.stringify(selectedSeats));
+  window.location.href = 'compra.html';
+}

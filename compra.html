@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Resumen de Compra - CineBloom</title>
+  <link rel="stylesheet" href="asientosSelec.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h4 class="center-align">Resumen de Compra</h4>
+
+    <div class="section">
+      <p><strong>Asientos seleccionados:</strong> <span id="asientosSeleccionados">Cargando...</span></p>
+      <p><strong>Número de boletos:</strong> <span id="cantidadBoletos">0</span></p>
+      <p><strong>Precio por boleto:</strong> $<span id="precioBoleto">75</span> MXN</p>
+      <p><strong>Total a pagar:</strong> $<span id="totalPagar">0</span> MXN</p>
+    </div>
+
+    <div class="section">
+      <h5>Método de pago</h5>
+      <form>
+        <p>
+          <label><input name="metodoPago" type="radio" checked /><span>Tarjeta de crédito</span></label>
+        </p>
+        <p>
+          <label><input name="metodoPago" type="radio" /><span>Tarjeta de débito</span></label>
+        </p>
+        <p>
+          <label><input name="metodoPago" type="radio" /><span>PayPal</span></label>
+        </p>
+        <button id="btnConfirmarCompra" class="btn waves-effect waves-light" type="submit">Confirmar Compra</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    const asientos = JSON.parse(localStorage.getItem('asientosSeleccionados')) || [];
+
+    // Redirigir si no hay asientos
+    if (asientos.length === 0) {
+      alert("No has seleccionado ningún asiento. Redirigiendo a selección...");
+      window.location.href = "index.html";
+    } else {
+      const precioPorBoleto = 75;
+      document.getElementById('asientosSeleccionados').textContent = asientos.join(', ');
+      document.getElementById('cantidadBoletos').textContent = asientos.length;
+      document.getElementById('totalPagar').textContent = asientos.length * precioPorBoleto;
+    }
+
+    // Evento para ir a la página de gracias
+    document.getElementById('btnConfirmarCompra').addEventListener('click', function(event) {
+      event.preventDefault();
+      window.location.href = "gracias.html";
+    });
+  </script>
+</body>
+</html>
