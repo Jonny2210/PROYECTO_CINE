@@ -32,4 +32,25 @@ document.addEventListener("DOMContentLoaded", function () {
       document.getElementById("pelicula-titulo").textContent = pelicula.titulo;
     }
   }
+
+   // Inicializar modales
+  var modales = document.querySelectorAll('.modal');
+  M.Modal.init(modales);
+  
 });
+
+function continuarAButacas() {
+  const cine = document.getElementById("select-cine").value;
+  const fecha = document.getElementById("fecha").value;
+  const hora = document.getElementById("select-hora").value;
+  const formato = document.getElementById("select-formato").value;
+  const idioma = document.getElementById("select-idioma").value;
+
+  if (!cine || !fecha || !hora || !formato || !idioma) {
+    alert("Por favor, selecciona todos los campos antes de continuar.");
+    return;
+  }
+
+  // Todo está seleccionado, ahora sí se redirige
+  window.location.href = "asientosSelec.html";
+}

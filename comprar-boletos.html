@@ -686,7 +686,7 @@
                 <div class="col s12 m4">
                     <div class="input-field">
                         <select id="fecha" class="browser-default"></select>
-                            <input type="date" id="fecha" name="fecha">
+                            
                             
                             <!-- Se llenarán con JavaScript -->
                         </select>
@@ -734,9 +734,10 @@
                 <a href="#" class="btn-nav back" onclick="volver()" style="visibility: hidden;">
                     <i class="fas fa-arrow-left"></i> Volver
                 </a>
-                <a href="asientosSelec.html" class="btn-nav forward" onclick="continuarAButacas()">
+                <a href="#" class="btn-nav forward" onclick="continuarAButacas()" type="button">
                     Continuar <i class="fas fa-arrow-right"></i>
                 </a>
+                
             </div>
         </div>
 
@@ -871,4 +872,15 @@
                             <input id="card-cvv" type="text" class="white-text">
 
                             <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-                            <script src="/comprar-boletos.js"></script>                           
+                            <script src="/comprar-boletos.js"></script>   
+                            
+                    <!-- Modal de advertencia -->
+                    <div id="modal-alerta" class="modal">
+                    <div class="modal-content">
+                        <h4 style="color: red;">⚠️ Atención</h4>
+                        <p style="font-size: 18px;">Por favor, selecciona todos los campos antes de continuar.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <a href="#!" class="modal-close waves-effect waves-green btn-flat">Entendido</a>
+                    </div>
+                    </div>
